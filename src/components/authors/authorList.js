@@ -16,8 +16,10 @@ class AuthorList extends React.Component {
     return (
       <div>
         <table className="table table-striped">
-          <th>Id</th>
-          <th>Name</th>
+          <thead>
+          <td>Id</td>
+          <td>Name</td>
+          </thead>
           <tbody>
           {this.props.authors.map(createAuthorRow, this)}
           </tbody>
