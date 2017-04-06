@@ -28,7 +28,7 @@ class AuthorForm extends React.Component {
 
   render () {
     return (
-      <form className="form-group">
+      <form className="form-group" onSubmit={this.props.onClick.bind(this)}>
         <h1>Manage Authors</h1>
         <InputTextField fieldType="text"
                         fieldName="firstName"

@@ -4,6 +4,7 @@
 var React = require('react');
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('../../api/AuthorApi')
+var Toastr  = require('toastr');
 
 class ManageAuthor extends React.Component {
   constructor () {
@@ -42,6 +43,7 @@ class ManageAuthor extends React.Component {
     event.preventDefault();
     console.log(this.state.author);
     AuthorApi.saveAuthor(this.state.author);
+    Toastr.success('User Created');
   }
 }
 
