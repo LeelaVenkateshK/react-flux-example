@@ -10,16 +10,19 @@ var HomePage = require('./../homePage');
 var AuthorPage = require('./../authors/authorPage');
 var AboutPage = require('./../about/aboutPage');
 var LoginPage = require('./../login/login');
+var ManagerAuthorPage = require('../authors/manageAuthorPage');
 
 var Routes = (
   <Router history={browserHistory}>
-    <Route name="default" path="/" component={App}>
+
+    <Route name="default" component={App}>
       <Route path="/" component={HomePage}/>
       <Route path="authors" component={AuthorPage}/>
+      <Route path="author" component={ManagerAuthorPage}/>
       <Route path="about" component={AboutPage}/>
       <Route path="login" component={LoginPage}/>
     </Route>
-    <Route name="notFound" path='*' component={PageNotFound}/>
+    <Route name="notFound" path="*" component={PageNotFound}/>
   </Router>
 );
 module.exports = Routes;

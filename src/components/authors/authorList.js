@@ -15,7 +15,7 @@ class AuthorList extends React.Component {
     };
     return (
       <div>
-        <table className="table table-striped">
+        <table className="table table-striped table-responsive">
           <thead>
           <td>Id</td>
           <td>Name</td>

@@ -12,10 +12,11 @@ class Header extends React.Component {
             <img src="images/home-icon.png" width={30} height={30}/>
           </Link>
           <ul className="nav navbar-nav">
-            <li><Link to="home">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="authors">Authors</Link></li>
             <li><Link to="about">About</Link></li>
-            <li><Link to="login">Log In</Link></li>
+            {/*<li><Link to="login">Log In</Link></li>*/}
+            <li><Link to="author">Add User</Link></li>
           </ul>
         </div>
       </nav>

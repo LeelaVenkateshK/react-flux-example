@@ -6,11 +6,18 @@
 var React = require('react');
 
 class LoginPage extends React.Component {
+  constructor () {
+    super();
+  }
+
   render () {
     return (
-      <form className="form-group">
+      <form className="form-horizontal">
         <label>E-mail</label>
-        <input className="form-horizontal" type="email" placeholder="Enter E-mail" />
+        <input className="form-control" type="email" placeholder="Enter E-mail"/>
+        <label>Password</label>
+        <input className="form-control" type="password" placeholder="Password"/>
+        <button className="btn-primary">Submit</button>
       </form>
     );
   }
