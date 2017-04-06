@@ -1,10 +1,10 @@
 /**
  * Created by WS33 on 4/4/2017.
  */
-var React = require('react');
-var AuthorForm = require('./authorForm');
-var AuthorApi = require('../../api/AuthorApi')
-var Toastr  = require('toastr');
+let React = require('react');
+let AuthorForm = require('./authorForm');
+let AuthorApi = require('../../api/AuthorApi');
+let toastr = require('toastr');
 
 class ManageAuthor extends React.Component {
   constructor () {
@@ -16,15 +16,34 @@ class ManageAuthor extends React.Component {
         lastName: ''
       }
     };
+    toastr.option = {
+      'closeButton': false,
+      'debug': false,
+      'newestOnTop': false,
+      'progressBar': false,
+      'positionClass': 'toast-top-right',
+      'preventDuplicates': false,
+      'onclick': null,
+      'showDuration': '200',
+      'hideDuration': '200',
+      'timeOut': '500',
+      'extendedTimeOut': '100',
+      'showEasing': 'swing',
+      'hideEasing': 'linear',
+      'showMethod': 'fadeIn',
+      'hideMethod': 'fadeOut'
+    };
   }
-  shouldComponentUpdate(newProps,newState){
+
+  shouldComponentUpdate (newProps, newState) {
     console.log('In ManageAuthorPage shouldComponentUpdate');
-    if(this.state!== newState){
+    if (this.state !== newState) {
       console.log('should update');
       return true;
     }
     return false;
   }
+
   setAuthorState (event) {
     let field = event.target.name,
       value = event.target.value;
@@ -35,15 +54,16 @@ class ManageAuthor extends React.Component {
   render () {
     return (
       <AuthorForm author={this.state.author}
-                  onTextChange={this.setAuthorState.bind(this)}
+                  onTextChange={this.setAuthorState}
                   onClick={this.saveAuthor.bind(this)}/>
     );
   }
-  saveAuthor(event){
+
+  saveAuthor (event) {
     event.preventDefault();
     console.log(this.state.author);
     AuthorApi.saveAuthor(this.state.author);
-    Toastr.success('User Created');
+    toastr['success']('User ' + this.state.author.firstName + ' saved');
   }
 }
 

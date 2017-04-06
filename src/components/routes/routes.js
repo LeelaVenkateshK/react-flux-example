@@ -9,7 +9,7 @@ var PageNotFound = require('../notFound');
 var HomePage = require('./../homePage');
 var AuthorPage = require('./../authors/authorPage');
 var AboutPage = require('./../about/aboutPage');
-var LoginPage = require('./../login/login');
+var LoginPage = require('./../login/loginPage');
 var ManagerAuthorPage = require('../authors/manageAuthorPage');
 
 var Routes = (

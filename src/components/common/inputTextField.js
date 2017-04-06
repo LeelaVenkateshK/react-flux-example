@@ -19,7 +19,7 @@ class InputTextField extends React.Component {
         <div className="form-group">
           <input type={this.props.fieldType}
                  name={this.props.fieldName}
-                 className="form-control"
+                 className="form-group-sm"
                  placeholder={this.props.placeholder}
                  value={this.props.value}
                  onChange={this.props.onTextChange}

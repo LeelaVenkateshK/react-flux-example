@@ -34,14 +34,14 @@ class AuthorForm extends React.Component {
                         fieldName="firstName"
                         placeholder="First Name"
                         value={this.props.author.firstName}
-                        onTextChange={this.props.onTextChange.bind(this)}
+                        onTextChange={this.props.onTextChange}
                         isFieldRequired={true}/>
 
         <InputTextField fieldType="text"
                         fieldName="lastName"
                         placeholder="Last Name"
                         value={this.props.author.lastName}
-                        onTextChange={this.props.onTextChange.bind(this)}
+                        onTextChange={this.props.onTextChange}
                         isFieldRequired={true}/>
 
         <input type="submit" value="save"
@@ -53,7 +53,7 @@ class AuthorForm extends React.Component {
   }
 
   onClickOfSubmit (event) {
-    event.preventDefault();
+    this.props.onClick(event);
   }
 }
 
