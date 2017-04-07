@@ -34,34 +34,41 @@ class AuthorForm extends React.Component {
                         fieldName="firstName"
                         placeholder="First Name"
                         value={this.props.author.firstName}
-                        onTextChange={this.onTextChange}
+                        onTextChange={this.onTextChange.bind(this)}
                         isFieldRequired={true}/>
 
         <InputTextField fieldType="text"
                         fieldName="lastName"
                         placeholder="Last Name"
                         value={this.props.author.lastName}
-                        onTextChange={this.onTextChange}
+                        onTextChange={this.props.onTextChange.bind(this)}
                         isFieldRequired={true}/>
 
         <input type="submit" value="save"
-               onClick={this.onClickOfSubmit}
+               onClick={this.props.onClick.bind(this)}
                className="btn btn-default"/>
 
       </form>
     );
   }
+static willTransformFrom(transition, component){
 
-  onTextChange = (event) => {
+}
+  validateFirstName(event){
+
+  }
+
+  onTextChange (event) {
     this.props.onTextChange(event);
   };
 
-  onClickOfSubmit = (event) => {
+  onClickOfSubmit (event) {
     this.props.onClick(event);
   };
 }
 
 AuthorForm.propTypes = {
-  onTextChange: React.PropTypes.func.isRequired
+  onTextChange: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func.isRequired
 };
 module.exports = AuthorForm;

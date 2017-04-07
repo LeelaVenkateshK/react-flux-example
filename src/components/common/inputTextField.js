@@ -12,31 +12,33 @@ class InputTextField extends React.Component {
       console.log(this.props.error[0]);
       wrapperClass += ' ' + 'has-error';
     }
-
+    let isValidated = '';
+    if (this.props.isFieldRequired) isValidated = 'form-control';
     return (
       <div className={wrapperClass}>
         <label htmlFor={this.props.fieldName}>{this.props.placeholder}</label>
         <div className="form-group">
           <input type={this.props.fieldType}
                  name={this.props.fieldName}
-                 className="form-group-sm"
+                 className={isValidated + 'form-group-sm'}
                  placeholder={this.props.placeholder}
                  value={this.props.value}
-                 onChange={this.props.onTextChange}
+                 onChange={this.props.onTextChange.bind(this)}
                  required={this.props.isFieldRequired}/>
-          <div className="input">{this.props.error}</div>
+          <div className="help-block">{this.props.error}</div>
         </div>
       </div>
     );
   }
+
   /*shouldComponentUpdate(newProps,newState){
-    console.log('In InputTextField shouldComponentUpdate');
-    if(this.state!== newState){
-      console.log('returning true');
-      return true;
-    }
-    return false;
-  }*/
+   console.log('In InputTextField shouldComponentUpdate');
+   if(this.state!== newState){
+   console.log('returning true');
+   return true;
+   }
+   return false;
+   }*/
 }
 
 InputTextField.propTypes = {
