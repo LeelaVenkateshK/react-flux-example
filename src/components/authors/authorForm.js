@@ -19,12 +19,12 @@ class AuthorForm extends React.Component {
   }
 
   /*shouldComponentUpdate (newProps, newState) {
-    console.log('In AuthorForm shouldComponentUpdate');
-    if (this.state !== newState) {
-      return true;
-    }
-    return false;
-  }*/
+   console.log('In AuthorForm shouldComponentUpdate');
+   if (this.state !== newState) {
+   return true;
+   }
+   return false;
+   }*/
 
   render () {
     return (
@@ -34,27 +34,31 @@ class AuthorForm extends React.Component {
                         fieldName="firstName"
                         placeholder="First Name"
                         value={this.props.author.firstName}
-                        onTextChange={this.props.onTextChange}
+                        onTextChange={this.onTextChange}
                         isFieldRequired={true}/>
 
         <InputTextField fieldType="text"
                         fieldName="lastName"
                         placeholder="Last Name"
                         value={this.props.author.lastName}
-                        onTextChange={this.props.onTextChange}
+                        onTextChange={this.onTextChange}
                         isFieldRequired={true}/>
 
         <input type="submit" value="save"
-               onClick={this.props.onClick.bind(this)}
+               onClick={this.onClickOfSubmit}
                className="btn btn-default"/>
 
       </form>
     );
   }
 
-  onClickOfSubmit (event) {
+  onTextChange = (event) => {
+    this.props.onTextChange(event);
+  };
+
+  onClickOfSubmit = (event) => {
     this.props.onClick(event);
-  }
+  };
 }
 
 AuthorForm.propTypes = {

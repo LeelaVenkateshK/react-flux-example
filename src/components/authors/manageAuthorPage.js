@@ -44,7 +44,7 @@ class ManageAuthor extends React.Component {
     return false;
   }
 
-  setAuthorState (event) {
+  setAuthorState = (event) => {
     let field = event.target.name,
       value = event.target.value;
     this.state.author[field] = value;
@@ -55,11 +55,11 @@ class ManageAuthor extends React.Component {
     return (
       <AuthorForm author={this.state.author}
                   onTextChange={this.setAuthorState}
-                  onClick={this.saveAuthor.bind(this)}/>
+                  onClick={this.saveAuthor}/>
     );
   }
 
-  saveAuthor (event) {
+  saveAuthor = (event) =>{
     event.preventDefault();
     console.log(this.state.author);
     AuthorApi.saveAuthor(this.state.author);
