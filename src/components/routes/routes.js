@@ -12,6 +12,7 @@ let AboutPage = require('./../about/aboutPage');
 let LoginPage = require('./../login/loginPage');
 let ManagerAuthorPage = require('../authors/manageAuthorPage');
 let UserRegistrationPage = require('./../register/registrationPage');
+let TermsAndConditionsPage = require('./../register/TermsAndConditions');
 
 let Routes = (
   <Router history={hashHistory}>
@@ -23,7 +24,7 @@ let Routes = (
       <Route path="about" component={AboutPage}/>
       <Route path="login" component={LoginPage}/>
       <Route path="register" component={UserRegistrationPage}/>
-      {/*<Route path="T&C" component={} />*/}
+      <Route path="T&C" component={TermsAndConditionsPage}/>
       <Route path="/*" component={PageNotFound}/>
     </Route>
 

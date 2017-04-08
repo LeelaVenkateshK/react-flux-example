@@ -23,7 +23,7 @@ var config = {
     images: './src/images/*',
     mainJs: './src/main.js',
     dist: './dist',
-    lint: './eslint.config.json'
+    lint: './.eslintrc.json'
   }
 };
 
@@ -49,7 +49,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('js', function () {
-  browserify(config.paths.mainJs)
+  browserify(config.paths.mainJs, {debug: true})
     .transform(reactify, {es6: true})
     .bundle()
     .on('error', console.error.bind(console))
@@ -76,16 +76,17 @@ gulp.task('images', function () {
 
 gulp.task('lint', function () {
   return gulp.src(config.paths.js)
-    .pipe(lint({config: 'eslint.config.json'}))
+    .pipe(lint())
     .pipe(lint.format())
     .pipe(lint.failAfterError());
 });
 
 gulp.task('watch', function () {
   gulp.watch(config.paths.html, ['html']);
-  gulp.watch(config.paths.js, ['js'/*, 'lint'*/]);
+  gulp.watch(config.paths.js, ['js', 'lint']);
   gulp.watch(config.paths.css, ['css']);
   gulp.watch(config.paths.images, ['images']);
+  gulp.watch(config.paths.lint, ['lint']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'images', 'watch', 'open']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'watch', 'open']);
