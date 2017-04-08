@@ -11,7 +11,9 @@ class PageNotFound extends React.Component{
       <div>
         <h2>Oops! Page Not Found</h2>
         <h4>{this.props.location.pathname} is not found</h4>
-        <Link to="app">Back to Home</Link>
+        <h5>The Page would be under maintenance or coming soon.</h5>
+        <h5>Thanks for your patience.</h5>
+        <p>Click here to go <Link to="/">Back to Home</Link></p>
       </div>
     );
   }

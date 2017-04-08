@@ -17,7 +17,7 @@ class InputTextField extends React.Component {
     return (
       <div className={wrapperClass}>
         <label htmlFor={this.props.fieldName}>{this.props.placeholder}</label>
-        <div className="form-group">
+        <div className="form-group-sm">
           <input type={this.props.fieldType}
                  name={this.props.fieldName}
                  className={isValidated + 'form-group-sm'}
