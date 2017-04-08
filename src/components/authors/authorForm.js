@@ -10,22 +10,6 @@ class AuthorForm extends React.Component {
     super();
   }
 
-  componentDidMount () {
-    console.log('Probably AuthorForm component should be mounted by now :)');
-  }
-
-  componentDidUpdate () {
-    console.log('AuthorForm Component has updated');
-  }
-
-  /*shouldComponentUpdate (newProps, newState) {
-   console.log('In AuthorForm shouldComponentUpdate');
-   if (this.state !== newState) {
-   return true;
-   }
-   return false;
-   }*/
-
   render () {
     return (
       <form className="form-group" onSubmit={this.props.onClick.bind(this)}>
@@ -51,20 +35,10 @@ class AuthorForm extends React.Component {
       </form>
     );
   }
-static willTransformFrom(transition, component){
-
-}
-  validateFirstName(event){
-
-  }
 
   onTextChange (event) {
     this.props.onTextChange(event);
-  };
-
-  onClickOfSubmit (event) {
-    this.props.onClick(event);
-  };
+  }
 }
 
 AuthorForm.propTypes = {

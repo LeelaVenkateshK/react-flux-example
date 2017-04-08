@@ -1,6 +1,4 @@
-var React = require('react');
-
-// $ = jQuery = require('jquery');
+'use strict';
 var ReactDOM = require('react-dom');
 var Routes = require('./components/routes/routes');
 

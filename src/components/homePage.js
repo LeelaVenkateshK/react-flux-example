@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
-var Header = require('./common/header');
-var LoginPage = require('./login/loginPage');
+
 class Home extends React.Component {
   render () {
     return (

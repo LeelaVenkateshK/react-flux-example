@@ -1,7 +1,5 @@
 'use strict';
-
 var React = require('react');
-var PropTypes = require('react').prototype;
 
 class AuthorList extends React.Component {
   render () {
@@ -28,6 +26,7 @@ class AuthorList extends React.Component {
     );
   }
 }
+
 AuthorList.propTypes = {
   authors: React.PropTypes.array.isRequired
 };

@@ -9,15 +9,11 @@ var p = plivo.RestAPI({
 
 var params = {
   'src': '89885315025', // Sender's phone number with country code
-  'dst' : '+918985315025', // Receiver's phone Number with country code
-  'text' : "Hi, message from Plivo", // Your SMS Text Message - English
-  'text' : "Hey whats\'up", // Your SMS Text Message - French
+  'dst': '+918985315025', // Receiver's phone Number with country code
+  'text': 'Hey whats\'up', // Your SMS Text Message - French
   // 'url' : "https://intense-brook-8241.herokuapp.com/report/", // The URL to which with the status of the message is sent
-  'method' : "GET" // The method used to call the url
+  'method': 'GET' // The method used to call the url
 };
 
 // Prints the complete response
-p.send_message(params, function (status, response) {
-  console.log('Status: ', status);
-  console.log('API Response:\n', response);
-});
+p.send_message(params, function (status, response) {});

@@ -2,7 +2,7 @@
  * Created by WS33 on 3/24/2017.
  */
 let React = require('react');
-let {browserHistory, hashHistory, Route, Router} = require('react-router');
+let {hashHistory, Route, Router} = require('react-router');
 
 let App = require('./../app');
 let PageNotFound = require('../notFound');

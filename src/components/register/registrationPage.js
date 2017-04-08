@@ -2,7 +2,7 @@
  * Created by WS33 on 4/8/2017.
  */
 let React = require('react');
-let {hashHistory, browserHistory, Router, Link} = require('react-router');
+let {Link} = require('react-router');
 let InputTextField = require('../common/inputTextField');
 
 class UserRegistrationPage extends React.Component {
@@ -27,7 +27,7 @@ class UserRegistrationPage extends React.Component {
       value = event.target.value;
     this.state[field] = value;
     return this.setState({author: this.state.author});
-  };
+  }
 
   render () {
     return (
@@ -71,7 +71,6 @@ class UserRegistrationPage extends React.Component {
       return;
     }
     this.state.termsAndConditionsMessage = '';
-    console.log('User has submitted data');
   }
 
   conditionsAgreed (event) {
@@ -85,8 +84,6 @@ class UserRegistrationPage extends React.Component {
       termsAndConditionsAgreed: this.state.termsAndConditionsAgreed,
       termsAndConditionsMessage: this.state.termsAndConditionsMessage
     });
-    console.log('Conditions Agreed : ' + this.state.termsAndConditionsAgreed);
-    console.log('message : ' + this.state.termsAndConditionsMessage);
   }
 }
 

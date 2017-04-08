@@ -10,7 +10,7 @@ class PageNotFound extends React.Component {
     return (
       <div>
         <h2>Oops! Page Not Found</h2>
-        <h4>The URL you have requested for "{this.props.location.pathname}" is not found</h4>
+        <h4>The URL you have requested for <b>"{this.props.location.pathname}"</b> is not found</h4>
 
         <h5>The possible reasons would be as follows:</h5>
         <ul>

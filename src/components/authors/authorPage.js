@@ -21,12 +21,11 @@ class AuthorPage extends React.Component {
     return (
       <div>
         <h1>Authors</h1>
-          <Link to="author" className="btn btn-default">Add User</Link>
+        <Link to="author" className="btn btn-default">Add User</Link>
         <AuthorList authors={this.state.authors}/>
       </div>
     );
   }
 }
-;
 
 module.exports = AuthorPage;
