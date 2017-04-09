@@ -2,9 +2,11 @@
  * Created by WS33 on 4/4/2017.
  */
 let React = require('react');
+let toastr = require('toastr');
+let {browserHistory, hashHistory, Router} = require('react-router');
+
 let AuthorForm = require('./authorForm');
 let AuthorApi = require('../../api/AuthorApi');
-let toastr = require('toastr');
 
 class ManageAuthor extends React.Component {
   constructor () {
@@ -44,26 +46,30 @@ class ManageAuthor extends React.Component {
     return false;
   }
 
-  setAuthorState = (event) => {
+  setAuthorState (event) {
     let field = event.target.name,
       value = event.target.value;
     this.state.author[field] = value;
     return this.setState({author: this.state.author});
+  };
+
+  saveAuthor (event) {
+    event.preventDefault();
+    console.log(this.state.author);
+    AuthorApi.saveAuthor(this.state.author);
+    toastr['success']('User ' + this.state.author.firstName + ' saved');
+    // Commented just as we are using hashHistory currently for allowing page reload
+    // TODO Change to browserHistory
+    // browserHistory.push('/authors');
+    hashHistory.push('/authors');
   }
 
   render () {
     return (
       <AuthorForm author={this.state.author}
-                  onTextChange={this.setAuthorState}
-                  onClick={this.saveAuthor}/>
+                  onTextChange={this.setAuthorState.bind(this)}
+                  onClick={this.saveAuthor.bind(this)}/>
     );
-  }
-
-  saveAuthor = (event) =>{
-    event.preventDefault();
-    console.log(this.state.author);
-    AuthorApi.saveAuthor(this.state.author);
-    toastr['success']('User ' + this.state.author.firstName + ' saved');
   }
 }
 

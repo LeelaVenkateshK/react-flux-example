@@ -15,8 +15,9 @@ class Header extends React.Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="authors">Authors</Link></li>
             <li><Link to="about">About</Link></li>
-            <li><Link to="login">Log In</Link></li>
             <li><Link to="author">Add User</Link></li>
+            <li><Link to="login">Log In</Link></li>
+            <li><Link to="register">Register</Link></li>
           </ul>
         </div>
       </nav>

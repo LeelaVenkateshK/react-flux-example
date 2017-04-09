@@ -9,7 +9,8 @@ class PageNotFound extends React.Component{
   render(){
     return(
       <div>
-        <h1>Page Not Found</h1>
+        <h2>Oops! Page Not Found</h2>
+        <h4>{this.props.location.pathname} is not found</h4>
         <Link to="app">Back to Home</Link>
       </div>
     );
