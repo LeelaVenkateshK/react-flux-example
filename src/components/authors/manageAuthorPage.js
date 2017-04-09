@@ -3,7 +3,7 @@
  */
 let React = require('react');
 let toastr = require('toastr');
-let {browserHistory, hashHistory, Router} = require('react-router');
+let {hashHistory} = require('react-router');
 
 let AuthorForm = require('./authorForm');
 let AuthorApi = require('../../api/AuthorApi');
@@ -37,10 +37,15 @@ class ManageAuthor extends React.Component {
     };
   }
 
+  componentWillMount () {
+    let authorId = this.props.params.id;
+    if (authorId) {
+      this.setState({author: AuthorApi.getAuthorById(authorId)});
+    }
+  }
+
   shouldComponentUpdate (newProps, newState) {
-    console.log('In ManageAuthorPage shouldComponentUpdate');
     if (this.state !== newState) {
-      console.log('should update');
       return true;
     }
     return false;
@@ -51,11 +56,10 @@ class ManageAuthor extends React.Component {
       value = event.target.value;
     this.state.author[field] = value;
     return this.setState({author: this.state.author});
-  };
+  }
 
   saveAuthor (event) {
     event.preventDefault();
-    console.log(this.state.author);
     AuthorApi.saveAuthor(this.state.author);
     toastr['success']('User ' + this.state.author.firstName + ' saved');
     // Commented just as we are using hashHistory currently for allowing page reload

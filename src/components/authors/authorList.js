@@ -1,14 +1,13 @@
 'use strict';
-
 var React = require('react');
-var PropTypes = require('react').prototype;
+var Link = require('react-router').Link;
 
 class AuthorList extends React.Component {
   render () {
     var createAuthorRow = function (author) {
       return (
         <tr key={author.id}>
-          <td><a href={'/#authors/' + author.id}>{author.id}</a></td>
+          <td><Link to={'author/' + author.id}>{author.id}</Link></td>
           <td>{author.firstName} {author.lastName}</td>
         </tr>
       );
@@ -28,6 +27,7 @@ class AuthorList extends React.Component {
     );
   }
 }
+
 AuthorList.propTypes = {
   authors: React.PropTypes.array.isRequired
 };

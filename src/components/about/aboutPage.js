@@ -1,6 +1,5 @@
 'use strict';
 var React = require('react');
-var Header = require('../common/header');
 
 class About extends React.Component {
   render () {

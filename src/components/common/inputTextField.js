@@ -6,10 +6,7 @@ var React = require('react');
 class InputTextField extends React.Component {
   render () {
     let wrapperClass = 'form-group';
-    // console.log('props');
-    // console.log(this.props);
     if (this.props.error && this.props.error.length > 0) {
-      console.log(this.props.error[0]);
       wrapperClass += ' ' + 'has-error';
     }
     let isValidated = '';
@@ -17,7 +14,7 @@ class InputTextField extends React.Component {
     return (
       <div className={wrapperClass}>
         <label htmlFor={this.props.fieldName}>{this.props.placeholder}</label>
-        <div className="form-group">
+        <div className="form-group-sm">
           <input type={this.props.fieldType}
                  name={this.props.fieldName}
                  className={isValidated + 'form-group-sm'}
@@ -30,15 +27,6 @@ class InputTextField extends React.Component {
       </div>
     );
   }
-
-  /*shouldComponentUpdate(newProps,newState){
-   console.log('In InputTextField shouldComponentUpdate');
-   if(this.state!== newState){
-   console.log('returning true');
-   return true;
-   }
-   return false;
-   }*/
 }
 
 InputTextField.propTypes = {

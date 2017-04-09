@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react');
-var {Link,IndexLink }= require('react-router');
-
+var {Link} = require('react-router');
 
 class Header extends React.Component {
   render () {
