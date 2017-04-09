@@ -37,6 +37,13 @@ class ManageAuthor extends React.Component {
     };
   }
 
+  componentWillMount () {
+    let authorId = this.props.params.id;
+    if (authorId) {
+      this.setState({author: AuthorApi.getAuthorById(authorId)});
+    }
+  }
+
   shouldComponentUpdate (newProps, newState) {
     if (this.state !== newState) {
       return true;

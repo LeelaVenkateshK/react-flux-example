@@ -12,8 +12,5 @@ class App extends React.Component {
     );
   }
 }
-App.props = {
-  children: React.PropTypes.any.isRequired
-};
 
 module.exports = App;

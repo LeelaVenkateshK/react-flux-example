@@ -21,6 +21,7 @@ let Routes = (
       <Route path="/" component={HomePage}/>
       <Route path="authors" component={AuthorPage}/>
       <Route path="author" component={ManagerAuthorPage}/>
+      <Route name="manageAuthor" path="author/:id" component={ManagerAuthorPage}/>
       <Route path="about" component={AboutPage}/>
       <Route path="login" component={LoginPage}/>
       <Route path="register" component={UserRegistrationPage}/>
