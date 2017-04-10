@@ -24,36 +24,43 @@ class UserRegistrationPage extends React.Component {
 
   onChangeOfField (event) {
     let field = event.target.name,
-      value = event.target.value;
-    this.state[field] = value;
-    return this.setState({author: this.state.author});
+      value = event.target.value, newData = this.state;
+    newData[field] = value;
+    return this.setState({author: newData});
   }
 
   render () {
+
+    let confirmPasswordField;
+    if (this.state.isPasswordValid) {
+      confirmPasswordField = <InputTextField fieldType="password" fieldName="confirmPass" placeholder="Confirm Password"
+                                             onTextChange={this.onChangeOfField}
+                                             isFieldRequired={true}/>;
+    } else {
+      confirmPasswordField = <InputTextField fieldType="password" fieldName="confirmPass" placeholder="Confirm Password"
+                                             onTextChange={this.onChangeOfField}
+                                             isFieldRequired={true} disabled/>;
+    }
     return (
       <form className="form-group" onSubmit={this.submitRegistration}>
         <InputTextField fieldType="text" fieldName="firstName" placeholder="First Name"
-                        onTextChange={this.onChangeOfField}
-                        isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
 
         <InputTextField fieldType="text" fieldName="lastName" placeholder="Last Name"
-                        onTextChange={this.onChangeOfField}
-                        isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
 
         <InputTextField fieldType="password" fieldName="password" placeholder="Password"
-                        onTextChange={this.onChangeOfField}
-                        isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
 
-        <InputTextField fieldType="text" fieldName="confirmPass" placeholder="Confirm Password"
-                        onTextChange={this.onChangeOfField}
-                        isFieldRequired={true} disabled={this.state.isPasswordValid}/>
+        {confirmPasswordField}
+
+        <InputTextField fieldType="date" fieldName="DOB" placeholder="Date of Birth"
+                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
 
         <InputTextField fieldType="number" fieldName="PhoneNum" placeholder="Phone Number"
-                        onTextChange={this.onChangeOfField}
-                        isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
 
-        <InputTextField fieldType="date" fieldName="DOB" placeholder="Date of Birth" onTextChange={this.onChangeOfField}
-                        isFieldRequired={true}/>
+
         <div><input type="checkbox" onChange={this.conditionsAgreed.bind(this)}
                     checked={this.state.termsAndConditionsAgreed}/> I
           agree to the <Link to="T&C" target="_blank">Terms And Conditions</Link>
@@ -67,22 +74,20 @@ class UserRegistrationPage extends React.Component {
   submitRegistration (event) {
     event.preventDefault();
     if (!this.state.termsAndConditionsAgreed) {
-      this.state.termsAndConditionsMessage = 'Please agree to the terms and conditions';
+      this.setState({termsAndConditionsMessage: 'Please agree to the terms and conditions'});
       return;
     }
-    this.state.termsAndConditionsMessage = '';
+    this.setState({termsAndConditionsMessage: ''});
   }
 
   conditionsAgreed (event) {
     event.preventDefault();
-    this.state.termsAndConditionsAgreed = !this.state.termsAndConditionsAgreed;
+    let termsAndConditions = !this.state.termsAndConditionsAgreed, message = '';
     if (!this.state.termsAndConditionsAgreed)
-      this.state.termsAndConditionsMessage = 'Please agree to the terms and conditions';
-    else
-      this.state.termsAndConditionsMessage = '';
+      message = 'Please agree to the terms and conditions';
     this.setState({
-      termsAndConditionsAgreed: this.state.termsAndConditionsAgreed,
-      termsAndConditionsMessage: this.state.termsAndConditionsMessage
+      termsAndConditionsAgreed: termsAndConditions,
+      termsAndConditionsMessage: message
     });
   }
 }

@@ -1,6 +1,7 @@
 'use strict';
-var React = require('react');
-var Header = require('./common/header');
+let React = require('react');
+let Header = require('./common/header');
+// let PropTypes = require('prop-types');
 
 class App extends React.Component {
   render () {
@@ -12,5 +13,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.any.isRequired
+};
 
 module.exports = App;

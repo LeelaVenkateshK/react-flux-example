@@ -1,6 +1,7 @@
-/**
+/*
+/!**
  * Created by WS33 on 4/6/2017.
- */
+ *!/
 var plivo = require('plivo');
 var p = plivo.RestAPI({
   authId: 'MAZJI5NTNJMTI3Y2U4NT',
@@ -16,4 +17,6 @@ var params = {
 };
 
 // Prints the complete response
-p.send_message(params, function (status, response) {});
+p.send_message(params, function (status, response) {
+  response = '';
+});*/

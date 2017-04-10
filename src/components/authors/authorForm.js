@@ -42,6 +42,7 @@ class AuthorForm extends React.Component {
 }
 
 AuthorForm.propTypes = {
+  author: React.PropTypes.object.isRequired,
   onTextChange: React.PropTypes.func.isRequired,
   onClick: React.PropTypes.func.isRequired
 };

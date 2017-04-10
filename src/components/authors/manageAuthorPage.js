@@ -53,9 +53,9 @@ class ManageAuthor extends React.Component {
 
   setAuthorState (event) {
     let field = event.target.name,
-      value = event.target.value;
-    this.state.author[field] = value;
-    return this.setState({author: this.state.author});
+      value = event.target.value, newAuthorInState = this.state.author;
+    newAuthorInState[field] = value;
+    return this.setState({author: newAuthorInState});
   }
 
   saveAuthor (event) {
@@ -76,5 +76,11 @@ class ManageAuthor extends React.Component {
     );
   }
 }
+ManageAuthor.propTypes = {
+  /**
+   * TODO check why this propTypes is failing
+   */
+  /*params: React.ProtoTypes.any*/
+};
 
 module.exports = ManageAuthor;

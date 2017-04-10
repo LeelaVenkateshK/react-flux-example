@@ -22,52 +22,38 @@ class LoginPage extends React.Component {
   }
 
   validateUserName (event) {
-    let value;
-    if (event === null || event === undefined) {
-      if (this.state.userName.length < 4) {
-        this.state.error.userName = 'User Name should be at least 4 characters';
-        this.setState({error: this.state.error});
-        return false;
-      }
+    let value, errorMessage = this.state.error;
+    if (event === null || event === undefined)
       value = this.state.userName;
-    }
-    else {
+    else
       value = event.target.value;
-      if (value.length < 4) {
-        this.state.error.userName = 'User Name should be at least 4 characters';
-        this.setState({error: this.state.error});
-        return false;
-      }
+
+    if (value.length < 4) {
+      errorMessage.userName = 'User Name should be at least 4 characters';
+      this.setState({error: errorMessage, password: value});
+      return false;
     }
     // TODO add db check for userName Value
-    this.state.error.userName = '';
-    this.setState({error: this.state.error});
-    this.setState({userName: value});
+    errorMessage.userName = '';
+    this.setState({error: errorMessage, userName: value});
     return true;
   }
 
   validatePassword (event) {
-    let value, response = true;
-    if (event === null || event === undefined) {
-      if (this.state.password.length < 4) {
-        this.state.error.password = 'Password should be at least 4 characters';
-        this.setState({error: this.state.error});
-        response = false;
-      }
+    let value, response = true, errorMessage = this.state.error;
+    if (event === null || event === undefined)
       value = this.state.password;
-    }
-    else {
+    else
       value = event.target.value;
-      if (value.length < 4) {
-        this.state.error.password = 'Password should be at least 4 characters';
-        this.setState({error: this.state.error});
-        response = false;
-      }
+
+    if (this.state.password.length < 4) {
+      errorMessage.password = 'Password should be at least 4 characters';
+      this.setState({error: errorMessage});
+      response = false;
     }
     if (response) {
-      this.state.error.password = '';
-      this.setState({error: this.state.error});
-      this.setState({password: value});
+      errorMessage.password = '';
+      this.setState({error: this.state.error, password: value});
     }
     return response;
   }

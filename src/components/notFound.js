@@ -23,5 +23,7 @@ class PageNotFound extends React.Component {
     );
   }
 }
-
+PageNotFound.propTypes = {
+  location: React.PropTypes.string.isRequired
+};
 module.exports = PageNotFound;
