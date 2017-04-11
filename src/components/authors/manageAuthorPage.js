@@ -3,10 +3,12 @@
  */
 let React = require('react');
 let toastr = require('toastr');
-let {hashHistory} = require('react-router');
+let {browserHistory} = require('react-router');
 
+let AuthorActions = require('../../actions/authorActions');
+let AuthorStore = require('../../stores/authorStore');
 let AuthorForm = require('./authorForm');
-let AuthorApi = require('../../api/AuthorApi');
+// let AuthorApi = require('../../api/AuthorApi');
 
 class ManageAuthor extends React.Component {
   constructor () {
@@ -40,32 +42,23 @@ class ManageAuthor extends React.Component {
   componentWillMount () {
     let authorId = this.props.params.id;
     if (authorId) {
-      this.setState({author: AuthorApi.getAuthorById(authorId)});
+      this.setState({author: AuthorStore.getAuthorById(authorId)});
     }
-  }
-
-  shouldComponentUpdate (newProps, newState) {
-    if (this.state !== newState) {
-      return true;
-    }
-    return false;
   }
 
   setAuthorState (event) {
     let field = event.target.name,
       value = event.target.value, newAuthorInState = this.state.author;
     newAuthorInState[field] = value;
+    newAuthorInState.id=newAuthorInState.firstName;
     return this.setState({author: newAuthorInState});
   }
 
   saveAuthor (event) {
     event.preventDefault();
-    AuthorApi.saveAuthor(this.state.author);
+    AuthorActions.createAuthor(this.state.author);
     toastr['success']('User ' + this.state.author.firstName + ' saved');
-    // Commented just as we are using hashHistory currently for allowing page reload
-    // TODO Change to browserHistory
-    // browserHistory.push('/authors');
-    hashHistory.push('/authors');
+    browserHistory.push('/authors');
   }
 
   render () {
@@ -80,7 +73,7 @@ ManageAuthor.propTypes = {
   /**
    * TODO check why this propTypes is failing
    */
-  /*params: React.ProtoTypes.any*/
+  // params: React.ProtoTypes.array.isFieldRequired
 };
 
 module.exports = ManageAuthor;

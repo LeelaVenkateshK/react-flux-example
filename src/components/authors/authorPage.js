@@ -1,19 +1,22 @@
 'use strict';
 
-var React = require('react');
-var Link = require('react-router').Link;
+let React = require('react');
+let Link = require('react-router').Link;
 
-var AuthorApi = require('../../api/AuthorApi');
-var AuthorList = require('./authorList');
+let AuthorApi = require('../../api/AuthorApi');
+let AuthorList = require('./authorList');
+let AuthorActions = require('../../actions/authorActions');
+let AuthorStore = require('../../stores/authorStore');
 
 class AuthorPage extends React.Component {
   constructor () {
     super();
+    // this.state = {authors: AuthorStore.getAllAuthors()};
   }
 
   componentWillMount () {
     // if (this.isMounted()) { // should not be used as deprecated
-    this.setState({authors: AuthorApi.getAllAuthors()});
+    this.setState({authors: AuthorStore.getAllAuthors()});
     // }
   }
 

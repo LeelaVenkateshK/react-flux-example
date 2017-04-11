@@ -2,7 +2,7 @@
  * Created by WS33 on 3/24/2017.
  */
 let React = require('react');
-let {hashHistory, Route, Router} = require('react-router');
+let {browserHistory, Route, Router} = require('react-router');
 
 let App = require('./../app');
 let PageNotFound = require('../notFound');
@@ -15,7 +15,7 @@ let UserRegistrationPage = require('./../register/registrationPage');
 let TermsAndConditionsPage = require('./../register/TermsAndConditions');
 
 let Routes = (
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
 
     <Route name="default" component={App}>
       <Route path="/" component={HomePage}/>

@@ -12,17 +12,25 @@ class AuthorList extends React.Component {
         </tr>
       );
     };
+    let result;
+    if (this.props.authors && this.props.authors instanceof Array &&
+          this.props.authors.length > 0) {
+      result = <table className="table table-striped table-responsive">
+        <thead>
+        <td>Id</td>
+        <td>Name</td>
+        </thead>
+        <tbody>
+        {this.props.authors.map(createAuthorRow, this)}
+        </tbody>
+      </table>;
+    }
+    else {
+      result = <p>No authors found. Please add using the above button</p>;
+    }
     return (
       <div>
-        <table className="table table-striped table-responsive">
-          <thead>
-          <td>Id</td>
-          <td>Name</td>
-          </thead>
-          <tbody>
-          {this.props.authors.map(createAuthorRow, this)}
-          </tbody>
-        </table>
+        {result}
       </div>
     );
   }

@@ -36,7 +36,7 @@ InputTextField.propTypes = {
   , onTextChange: React.PropTypes.func.isRequired
   , isFieldRequired: React.PropTypes.bool.isRequired
   , error: React.PropTypes.object
-  , value: React.PropTypes.string.isRequired
+  , value: React.PropTypes.string
 };
 
 module.exports = InputTextField;

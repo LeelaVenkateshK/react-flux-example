@@ -34,6 +34,14 @@ gulp.task('connect', function () {
     port: config.port,
     base: config.baseUrl,
     liveReload: true
+    /**
+     * Below two lines added for browserHistory.
+     * Because hashHistory supports reload of urls direclty,
+     * however for browserHistory we need to specify the path for urls manually.
+     * It is done in the below 2 lines of code.
+     */
+    , defaultFile: 'dist/index/html'
+    , fallback: 'dist/index.html'
   });
 });
 
@@ -89,4 +97,4 @@ gulp.task('watch', function () {
   gulp.watch(config.paths.lint, ['lint']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'watch', 'open']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'open', 'lint', 'watch']);

@@ -5,7 +5,7 @@
 
 var React = require('react');
 let toastr = require('toastr');
-let {hashHistory} = require('react-router');
+let {browserHistory} = require('react-router');
 var InputTextField = require('../common/inputTextField');
 
 class LoginPage extends React.Component {
@@ -64,10 +64,10 @@ class LoginPage extends React.Component {
     if (!this.validatePassword()) return;
     toastr['success']('Welcome ' + this.state.userName);
 
-    // Commented just as we are using hashHistory currently for allowing page reload
+    // Commented just as we are using browserHistory currently for allowing page reload
     // TODO Change to browserHistory
     // browserHistory.push('/authors');
-    hashHistory.push('/authors');
+    browserHistory.push('/authors');
   }
 
   render () {

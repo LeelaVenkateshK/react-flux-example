@@ -34,38 +34,43 @@ class UserRegistrationPage extends React.Component {
     let confirmPasswordField;
     if (this.state.isPasswordValid) {
       confirmPasswordField = <InputTextField fieldType="password" fieldName="confirmPass" placeholder="Confirm Password"
-                                             onTextChange={this.onChangeOfField}
-                                             isFieldRequired={true}/>;
+                                             onTextChange={this.onChangeOfField.bind(this)}
+                                             isFieldRequired={true} value={this.state.confirmPass}/>;
     } else {
       confirmPasswordField = <InputTextField fieldType="password" fieldName="confirmPass" placeholder="Confirm Password"
-                                             onTextChange={this.onChangeOfField}
-                                             isFieldRequired={true} disabled/>;
+                                             onTextChange={this.onChangeOfField.bind(this)}
+                                             isFieldRequired={true} disabled value={this.state.confirmPass}/>;
     }
     return (
       <form className="form-group" onSubmit={this.submitRegistration}>
         <InputTextField fieldType="text" fieldName="firstName" placeholder="First Name"
-                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField.bind(this)} isFieldRequired={true}
+                        value={this.state.firstName}/>
 
         <InputTextField fieldType="text" fieldName="lastName" placeholder="Last Name"
-                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField.bind(this)} isFieldRequired={true}
+                        value={this.state.lastName}/>
 
         <InputTextField fieldType="password" fieldName="password" placeholder="Password"
-                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField.bind(this)} isFieldRequired={true}
+                        value={this.state.password}/>
 
         {confirmPasswordField}
 
         <InputTextField fieldType="date" fieldName="DOB" placeholder="Date of Birth"
-                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField.bind(this)} isFieldRequired={true}
+                        value={this.state.DOB}/>
 
         <InputTextField fieldType="number" fieldName="PhoneNum" placeholder="Phone Number"
-                        onTextChange={this.onChangeOfField} isFieldRequired={true}/>
+                        onTextChange={this.onChangeOfField.bind(this)} isFieldRequired={true}
+                        value={this.state.phoneNo}/>
 
 
         <div><input type="checkbox" onChange={this.conditionsAgreed.bind(this)}
                     checked={this.state.termsAndConditionsAgreed}/> I
           agree to the <Link to="T&C" target="_blank">Terms And Conditions</Link>
           <p className="input has-error">{this.state.termsAndConditionsMessage}</p></div>
-        <button className="btn btn-primary" type="submit" onClick={this.submitRegistration}>Register</button>
+        <button className="btn btn-primary" type="submit" onClick={this.submitRegistration.bind(this)}>Register</button>
         <button className="btn btn-danger" type="reset" value="Reset">Reset</button>
       </form>
     );
