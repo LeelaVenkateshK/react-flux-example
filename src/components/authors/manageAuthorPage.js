@@ -8,7 +8,6 @@ let {browserHistory} = require('react-router');
 let AuthorActions = require('../../actions/authorActions');
 let AuthorStore = require('../../stores/authorStore');
 let AuthorForm = require('./authorForm');
-// let AuthorApi = require('../../api/AuthorApi');
 
 class ManageAuthor extends React.Component {
   constructor () {

@@ -3,7 +3,6 @@
 let React = require('react');
 let Link = require('react-router').Link;
 
-let AuthorApi = require('../../api/AuthorApi');
 let AuthorList = require('./authorList');
 let AuthorActions = require('../../actions/authorActions');
 let AuthorStore = require('../../stores/authorStore');

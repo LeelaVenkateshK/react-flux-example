@@ -15,8 +15,10 @@ class Header extends React.Component {
             <li><Link to="authors">Authors</Link></li>
             <li><Link to="about">About</Link></li>
             <li><Link to="author">Add User</Link></li>
-            <li><Link to="login">Log In</Link></li>
-            <li><Link to="register">Register</Link></li>
+            {/*Commented as the below is not part of Application using
+             Pluralsight course*/}
+            {/*<li><Link to="login">Log In</Link></li>*/}
+            {/*<li><Link to="register">Register</Link></li>*/}
           </ul>
         </div>
       </nav>
