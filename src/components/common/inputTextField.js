@@ -1,7 +1,8 @@
 /**
  * Created by WS33 on 4/4/2017.
  */
-var React = require('react');
+let React = require('react');
+let PropTypes = require('prop-types');
 
 class InputTextField extends React.Component {
   render () {
@@ -30,13 +31,13 @@ class InputTextField extends React.Component {
 }
 
 InputTextField.propTypes = {
-  fieldType: React.PropTypes.string.isRequired
-  , fieldName: React.PropTypes.string.isRequired
-  , placeholder: React.PropTypes.string.isRequired
-  , onTextChange: React.PropTypes.func.isRequired
-  , isFieldRequired: React.PropTypes.bool.isRequired
-  , error: React.PropTypes.object
-  , value: React.PropTypes.string
+  fieldType: PropTypes.string.isRequired
+  , fieldName: PropTypes.string.isRequired
+  , placeholder: PropTypes.string.isRequired
+  , onTextChange: PropTypes.func.isRequired
+  , isFieldRequired: PropTypes.bool.isRequired
+  , error: PropTypes.object
+  , value: PropTypes.string
 };
 
 module.exports = InputTextField;

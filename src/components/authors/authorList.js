@@ -1,6 +1,7 @@
 'use strict';
-var React = require('react');
-var Link = require('react-router').Link;
+let React = require('react');
+let Link = require('react-router').Link;
+let PropTypes = require('prop-types');
 
 class AuthorList extends React.Component {
   render () {
@@ -14,7 +15,7 @@ class AuthorList extends React.Component {
     };
     let result;
     if (this.props.authors && this.props.authors instanceof Array &&
-          this.props.authors.length > 0) {
+      this.props.authors.length > 0) {
       result = <table className="table table-striped table-responsive">
         <thead>
         <td>Id</td>
@@ -37,6 +38,6 @@ class AuthorList extends React.Component {
 }
 
 AuthorList.propTypes = {
-  authors: React.PropTypes.array.isRequired
+  authors: PropTypes.array.isRequired
 };
 module.exports = AuthorList;

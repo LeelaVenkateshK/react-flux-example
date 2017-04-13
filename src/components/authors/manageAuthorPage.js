@@ -4,6 +4,7 @@
 let React = require('react');
 let toastr = require('toastr');
 let {browserHistory} = require('react-router');
+let PropTypes = require('prop-types');
 
 let AuthorActions = require('../../actions/authorActions');
 let AuthorStore = require('../../stores/authorStore');
@@ -49,7 +50,7 @@ class ManageAuthor extends React.Component {
     let field = event.target.name,
       value = event.target.value, newAuthorInState = this.state.author;
     newAuthorInState[field] = value;
-    newAuthorInState.id=newAuthorInState.firstName;
+    newAuthorInState.id = newAuthorInState.firstName + '-' + newAuthorInState.lastName;
     return this.setState({author: newAuthorInState});
   }
 
@@ -72,7 +73,7 @@ ManageAuthor.propTypes = {
   /**
    * TODO check why this propTypes is failing
    */
-  // params: React.ProtoTypes.array.isFieldRequired
+  params: PropTypes.any
 };
 
 module.exports = ManageAuthor;

@@ -4,9 +4,10 @@
 'use strict';
 let _ = require('lodash');
 
-let AppDispatcher = require('../dispatcher/appDispatcher');
+let AppDispatcher = require('../dispatcher/dispatcher');
 let ActionTypes = require('../constants/actionTypes');
 let EventEmitter = require('events').EventEmitter;
+let AuthorApi = require('./../api/AuthorApi');
 
 let CHANGE_EVENT = 'change';
 
@@ -22,6 +23,9 @@ let AuthorStore = Object.assign({}, EventEmitter.prototype, {
     this.emit(CHANGE_EVENT);
   },
   getAllAuthors(){
+    if (_authors.length === 0) {
+      _authors = AuthorApi.getAllAuthors();
+    }
     return _authors;
   },
   getAuthorById(id){
@@ -34,6 +38,9 @@ AppDispatcher.register(function (action) {
     case ActionTypes.CREATE_AUTHOR :
       _authors.push(action.author);
       AuthorStore.emitChange();
+      break;
+    case ActionTypes.GET_AUTHORS:
+      return _authors;
   }
 });
 

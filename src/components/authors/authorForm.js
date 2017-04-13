@@ -1,9 +1,10 @@
 /**
  * Created by WS33 on 4/4/2017.
  */
-var React = require('react');
+let React = require('react');
+let PropTypes = require('prop-types');
 
-var InputTextField = require('../common/inputTextField');
+let InputTextField = require('../common/inputTextField');
 
 class AuthorForm extends React.Component {
   constructor () {
@@ -42,8 +43,8 @@ class AuthorForm extends React.Component {
 }
 
 AuthorForm.propTypes = {
-  author: React.PropTypes.object.isRequired,
-  onTextChange: React.PropTypes.func.isRequired,
-  onClick: React.PropTypes.func.isRequired
+  author: PropTypes.object.isRequired,
+  onTextChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 module.exports = AuthorForm;

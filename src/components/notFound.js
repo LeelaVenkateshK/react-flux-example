@@ -2,15 +2,17 @@
  * Created by WS33 on 3/31/2017.
  */
 'use strict';
-var React = require('react');
-var Link = require('react-router').Link;
+let React = require('react');
+let Link = require('react-router').Link;
+let PropTypes = require('prop-types');
 
 class PageNotFound extends React.Component {
   render () {
     return (
       <div>
         <h2>Oops! Page Not Found</h2>
-        <h4>The URL you have requested for <b>"{this.props.location.pathname}"</b> is not found</h4>
+        <h4>The URL you have requested for
+          <b>"{this.props.location.pathname}"</b> is not found</h4>
 
         <h5>The possible reasons would be as follows:</h5>
         <ul>
@@ -24,6 +26,6 @@ class PageNotFound extends React.Component {
   }
 }
 PageNotFound.propTypes = {
-  location: React.PropTypes.string.isRequired
+  location: PropTypes.string.isRequired
 };
 module.exports = PageNotFound;

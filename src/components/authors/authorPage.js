@@ -4,21 +4,23 @@ let React = require('react');
 let Link = require('react-router').Link;
 
 let AuthorList = require('./authorList');
-let AuthorActions = require('../../actions/authorActions');
 let AuthorStore = require('../../stores/authorStore');
 
 class AuthorPage extends React.Component {
   constructor () {
     super();
-    // this.state = {authors: AuthorStore.getAllAuthors()};
+    this.state = {authors: AuthorStore.getAllAuthors()};
   }
 
-  componentWillMount () {
-    // if (this.isMounted()) { // should not be used as deprecated
-    this.setState({authors: AuthorStore.getAllAuthors()});
-    // }
-  }
-
+  /**
+   * Commented as the state is set in constructor itself
+   */
+  /* componentWillMount () {
+   // if (this.isMounted()) { // should not be used as deprecated
+   this.setState({authors: AuthorStore.getAllAuthors()});
+   // }
+   }
+   */
   render () {
     return (
       <div>
