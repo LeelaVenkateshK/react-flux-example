@@ -5,23 +5,24 @@ var {Link} = require('react-router');
 class Header extends React.Component {
   render () {
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-          <Link to="/" className="navbar-brand">
-            <img src="images/home-icon.png" width={30} height={30}/>
-          </Link>
-          <ul className="nav navbar-nav">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="authors">Authors</Link></li>
-            <li><Link to="about">About</Link></li>
-            <li><Link to="author">Add User</Link></li>
-            {/*Commented as the below is not part of Application using
-             Pluralsight course*/}
-            {/*<li><Link to="login">Log In</Link></li>*/}
-            {/*<li><Link to="register">Register</Link></li>*/}
-          </ul>
-        </div>
-      </nav>
+      <div>
+        <div><Link className="btn-block" to="login">Log In</Link></div>
+        <nav className="navbar navbar-inverse">
+          <div className="container-fluid">
+            <Link to="/" className="navbar-brand">
+              <img src="images/home-icon.png" width={30} height={30}/>
+            </Link>
+            <ul className="nav navbar-nav">
+              <li><Link to="/">Home</Link></li>
+              {/*<li><Link to="authors">Authors</Link></li>*/}
+              <li><Link to="about">About</Link></li>
+              {/*<li><Link to="author">Add User</Link></li>*/}
+              {/*<li><Link to="login">Log In</Link></li>*/}
+              <li><Link to="register">Register</Link></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   }
 }

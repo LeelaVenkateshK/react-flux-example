@@ -4,6 +4,11 @@ let Header = require('./common/header');
 let PropTypes = require('prop-types');
 
 class App extends React.Component {
+  constructor () {
+    super();
+    this.state = {username: '', token: ''};
+  }
+
   render () {
     return (
       <div>
