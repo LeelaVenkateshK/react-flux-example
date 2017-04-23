@@ -8,6 +8,7 @@ var reactify = require('reactify');     // Transforms JSX to JS
 var source = require('vinyl-source-stream');    // Use conventional streams with gulp
 var concat = require('gulp-concat');    // Concatenates files
 var lint = require('gulp-eslint');      // Lint for Js and JSX files
+let babelify = require('babelify');
 
 var config = {
   baseUrl: 'http://localhost',
@@ -58,7 +59,7 @@ gulp.task('html', function () {
 
 gulp.task('js', function () {
   browserify(config.paths.mainJs, {debug: true})
-    .transform(reactify, {es6: true})
+    .transform(babelify)
     .bundle()
     .on('error', console.error.bind(console))
     .pipe(source('bundle.js'))

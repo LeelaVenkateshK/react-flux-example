@@ -3,7 +3,7 @@
  */
 let React = require('react');
 let {Link} = require('react-router');
-let InputTextField = require('../common/inputTextField');
+let InputTextField = require('../common-components/inputTextField');
 
 class UserRegistrationPage extends React.Component {
   constructor () {
@@ -22,27 +22,29 @@ class UserRegistrationPage extends React.Component {
     };
   }
 
-  onChangeOfField (event) {
+  onChangeOfField = (event) => {
     let field = event.target.name,
       value = event.target.value, newData = this.state;
     newData[field] = value;
     return this.setState({author: newData});
-  }
+  };
 
   render () {
-
     let confirmPasswordField;
+    if(this.state.author && this.state.author.firstName) {
+      console.log('this.state.author.firstName :: ' + (this.state.author) ? this.state.author.firstName : 'no name');
+    }
     if (this.state.isPasswordValid) {
       confirmPasswordField =
         <InputTextField fieldType="password" fieldName="confirmPass"
                         placeholder="Confirm Password"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true} value={this.state.confirmPass}/>;
     } else {
       confirmPasswordField =
         <InputTextField fieldType="password" fieldName="confirmPass"
                         placeholder="Confirm Password"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true} disabled
                         value={this.state.confirmPass}/>;
     }
@@ -50,19 +52,19 @@ class UserRegistrationPage extends React.Component {
       <form className="form-group" onSubmit={this.submitRegistration}>
         <InputTextField fieldType="text" fieldName="firstName"
                         placeholder="First Name"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true}
                         value={this.state.firstName}/>
 
         <InputTextField fieldType="text" fieldName="lastName"
                         placeholder="Last Name"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true}
                         value={this.state.lastName}/>
 
         <InputTextField fieldType="password" fieldName="password"
                         placeholder="Password"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true}
                         value={this.state.password}/>
 
@@ -70,18 +72,18 @@ class UserRegistrationPage extends React.Component {
 
         <InputTextField fieldType="date" fieldName="DOB"
                         placeholder="Date of Birth"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true}
                         value={this.state.DOB}/>
 
         <InputTextField fieldType="number" fieldName="PhoneNum"
                         placeholder="Phone Number"
-                        onTextChange={this.onChangeOfField.bind(this)}
+                        onTextChange={this.onChangeOfField}
                         isFieldRequired={true}
                         value={this.state.phoneNo}/>
 
 
-        <div><input type="checkbox" onChange={this.conditionsAgreed.bind(this)}
+        <div><input type="checkbox" onChange={this.conditionsAgreed}
                     checked={this.state.termsAndConditionsAgreed}/> I
           agree to the <Link to="T&C" target="_blank">Terms And
             Conditions</Link>
@@ -89,7 +91,7 @@ class UserRegistrationPage extends React.Component {
             className="input has-error">{this.state.termsAndConditionsMessage}</p>
         </div>
         <button className="btn btn-primary" type="submit"
-                onClick={this.submitRegistration.bind(this)}>Register
+                onClick={this.submitRegistration}>Register
         </button>
         <button className="btn btn-danger" type="reset" value="Reset">Reset
         </button>
@@ -97,14 +99,15 @@ class UserRegistrationPage extends React.Component {
     );
   }
 
-  submitRegistration (event) {
+  submitRegistration = (event) => {
     event.preventDefault();
+    console.log(this.state.author.firstName);
     if (!this.state.termsAndConditionsAgreed) {
       this.setState({termsAndConditionsMessage: 'Please agree to the terms and conditions'});
       return;
     }
     this.setState({termsAndConditionsMessage: ''});
-  }
+  };
 
   conditionsAgreed (event) {
     event.preventDefault();

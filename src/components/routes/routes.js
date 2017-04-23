@@ -5,14 +5,14 @@ let React = require('react');
 let {browserHistory, Route, Router} = require('react-router');
 
 let App = require('./../app');
-let PageNotFound = require('../notFound');
-let HomePage = require('./../homePage');
+let PageNotFound = require('../error-page/notFound');
+let HomePage = require('../home-page/homePage');
 let AuthorPage = require('./../authors/authorPage');
-let AboutPage = require('./../about/aboutPage');
-let LoginPage = require('./../login/loginPage');
+let AboutPage = require('../about-page/aboutPage');
+let LoginPage = require('../login-page/loginPage');
 let ManagerAuthorPage = require('../authors/manageAuthorPage');
-let UserRegistrationPage = require('./../register/registrationPage');
-let TermsAndConditionsPage = require('./../register/TermsAndConditions');
+let UserRegistrationPage = require('../registration-page/registrationPage');
+let TermsAndConditionsPage = require('../registration-page/TermsAndConditions');
 
 let Routes = (
   <Router history={browserHistory}>

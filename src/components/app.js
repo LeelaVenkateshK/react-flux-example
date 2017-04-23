@@ -1,6 +1,6 @@
 'use strict';
 let React = require('react');
-let Header = require('./common/header');
+let Header = require('./common-components/header');
 let PropTypes = require('prop-types');
 
 class App extends React.Component {

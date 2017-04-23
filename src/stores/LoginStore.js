@@ -2,12 +2,12 @@
  * Created by WS33 on 4/19/2017.
  */
 'use strict';
-import { EventEmitter } from 'events';
+let { EventEmitter }  = require('events');
 
-import serviceEndPoints from './../constants/serviceEndPoints';
-import services from './../webServices/serviceCaller';
-import ActionTypes from './../constants/actionTypes';
-import Dispatcher from './../dispatcher/dispatcher';
+let serviceEndPoints = require('./../constants/serviceEndPoints');
+let services = require('../webServices/web-services');
+let ActionTypes = require('./../constants/actionTypes');
+let Dispatcher = require('./../dispatcher/dispatcher');
 
 let CHANGE_EVENT = 'change';
 let LoginStore = Object.assign({}, EventEmitter, {
@@ -26,6 +26,10 @@ Dispatcher.register(function (action) {
   switch (action) {
     case ActionTypes.USER_LOGIN:
       services.get(serviceEndPoints.USER_LOGIN);
+      LoginStore.emitChange();
+      break;
+    case ActionTypes.REGISTER_USER:
+      services.post();
       LoginStore.emitChange();
       break;
   }

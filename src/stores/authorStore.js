@@ -8,6 +8,8 @@ let AppDispatcher = require('../dispatcher/dispatcher');
 let ActionTypes = require('../constants/actionTypes');
 let EventEmitter = require('events').EventEmitter;
 let AuthorApi = require('./../api/AuthorApi');
+let services = require('./../webServices/web-services');
+let serviceEndPoints = require('./../constants/serviceEndPoints');
 
 let CHANGE_EVENT = 'change';
 
@@ -30,6 +32,9 @@ let AuthorStore = Object.assign({}, EventEmitter.prototype, {
   },
   getAuthorById(id){
     return _.find(_authors, {id: id});
+  },
+  connTest(){
+    console.log('connection test');
   }
 });
 
@@ -39,8 +44,9 @@ AppDispatcher.register(function (action) {
       _authors.push(action.author);
       AuthorStore.emitChange();
       break;
-    case ActionTypes.GET_AUTHORS:
-      return _authors;
+    case ActionTypes.TEST:
+      services.get(serviceEndPoints.TEST,AuthorStore.connTest.bind(this));
+      break;
   }
 });
 

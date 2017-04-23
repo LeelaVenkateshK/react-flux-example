@@ -6,7 +6,7 @@
 var React = require('react');
 let toastr = require('toastr');
 let {browserHistory} = require('react-router');
-var InputTextField = require('../common/inputTextField');
+var InputTextField = require('../common-components/inputTextField');
 
 class LoginPage extends React.Component {
   constructor () {

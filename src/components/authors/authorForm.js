@@ -4,7 +4,7 @@
 let React = require('react');
 let PropTypes = require('prop-types');
 
-let InputTextField = require('../common/inputTextField');
+let InputTextField = require('../common-components/inputTextField');
 
 class AuthorForm extends React.Component {
   constructor () {

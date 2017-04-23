@@ -1,6 +1,7 @@
 /**
  * Created by WS33 on 4/10/2017.
  */
+'use strict';
 let Dispatcher = require('../dispatcher/dispatcher');
 let ActionTypes = require('../constants/actionTypes');
 let AuthorActions = {
@@ -15,6 +16,12 @@ let AuthorActions = {
     Dispatcher.dispatch({
       actionType:ActionTypes.GET_AUTHORS
     });
+  },
+  testConnection(){
+    Dispatcher.dispatch({
+      actionType:ActionTypes.TEST
+    });
+
   }
 };
 
