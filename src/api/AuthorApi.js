@@ -1,8 +1,8 @@
 'use strict';
 
 //This file is mocking a web API by hitting hard coded data.
-var authors = require('./AuthorData').authors;
-var _ = require('lodash');
+import { authors } from './AuthorData';
+import  _ from 'lodash';
 
 //This would be performed on the server in a real app. Just stubbing in.
 var _generateId = function (author) {

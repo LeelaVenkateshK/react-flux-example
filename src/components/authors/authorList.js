@@ -1,7 +1,7 @@
 'use strict';
-let React = require('react');
-let Link = require('react-router').Link;
-let PropTypes = require('prop-types');
+import React from 'react';
+import  { Link }from 'react-router';
+import  PropTypes from 'prop-types';
 
 class AuthorList extends React.Component {
   render () {
@@ -40,4 +40,4 @@ class AuthorList extends React.Component {
 AuthorList.propTypes = {
   authors: PropTypes.array.isRequired
 };
-module.exports = AuthorList;
+export default AuthorList;

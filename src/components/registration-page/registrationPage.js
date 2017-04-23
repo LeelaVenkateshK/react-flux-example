@@ -1,9 +1,9 @@
 /**
  * Created by WS33 on 4/8/2017.
  */
-let React = require('react');
-let {Link} = require('react-router');
-let InputTextField = require('../common-components/inputTextField');
+import React from 'react';
+import { Link } from 'react-router';
+import InputTextField from '../common-components/inputTextField';
 
 class UserRegistrationPage extends React.Component {
   constructor () {
@@ -31,7 +31,7 @@ class UserRegistrationPage extends React.Component {
 
   render () {
     let confirmPasswordField;
-    if(this.state.author && this.state.author.firstName) {
+    if (this.state.author && this.state.author.firstName) {
       console.log('this.state.author.firstName :: ' + (this.state.author) ? this.state.author.firstName : 'no name');
     }
     if (this.state.isPasswordValid) {
@@ -121,4 +121,4 @@ class UserRegistrationPage extends React.Component {
   }
 }
 
-module.exports = UserRegistrationPage;
+export default UserRegistrationPage;

@@ -1,7 +1,7 @@
 'use strict';
-let ReactDOM = require('react-dom');
-let Routes = require('./components/routes/routes');
-let AuthorActions = require('./actions/authorActions');
+import ReactDOM from 'react-dom';
+import Routes from './components/routes/routes';
+import AuthorActions from './actions/authorActions';
 
 AuthorActions.testConnection();
 ReactDOM.render(Routes, document.getElementById('app'));

@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react');
+import React from 'react';
 
 class Home extends React.Component {
   render () {
@@ -10,10 +10,11 @@ class Home extends React.Component {
             Administration
           </h1>
         </div>
-        <p>This will override the Actual "Hello Kris" that was supposed to be displayed</p>
+        <p>This will override the Actual "Hello Kris" that was supposed to be
+          displayed</p>
       </div>
     );
   }
 }
 
-module.exports = Home;
+export default Home;

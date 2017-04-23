@@ -1,12 +1,8 @@
-/**
- * Created by WS33 on 3/31/2017.
- */
 'use strict';
-
-var React = require('react');
-let toastr = require('toastr');
-let {browserHistory} = require('react-router');
-var InputTextField = require('../common-components/inputTextField');
+import React from 'react';
+import toastr from 'toastr';
+import { browserHistory } from 'react-router';
+import InputTextField from '../common-components/inputTextField';
 
 class LoginPage extends React.Component {
   constructor () {
@@ -73,16 +69,22 @@ class LoginPage extends React.Component {
   render () {
     return (
       <form className="form-group">
-        <InputTextField fieldType="text" fieldName="userName" placeholder="User Name"
+        <InputTextField fieldType="text" fieldName="userName"
+                        placeholder="User Name"
                         onTextChange={this.validateUserName.bind(this)}
-                        isFieldRequired={true} error={this.state.error.userName}/>
-        <InputTextField fieldType="password" fieldName="password" placeholder="Password"
+                        isFieldRequired={true}
+                        error={this.state.error.userName}/>
+        <InputTextField fieldType="password" fieldName="password"
+                        placeholder="Password"
                         onTextChange={this.validatePassword.bind(this)}
-                        isFieldRequired={true} error={this.state.error.password}/>
-        <button className="btn btn-primary" onClick={this.login.bind(this)}>Submit</button>
+                        isFieldRequired={true}
+                        error={this.state.error.password}/>
+        <button className="btn btn-primary" onClick={this.login.bind(this)}>
+          Submit
+        </button>
       </form>
     );
   }
 }
 
-module.exports = LoginPage;
+export default LoginPage;

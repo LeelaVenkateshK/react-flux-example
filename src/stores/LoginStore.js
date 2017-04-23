@@ -2,12 +2,12 @@
  * Created by WS33 on 4/19/2017.
  */
 'use strict';
-let { EventEmitter }  = require('events');
+import { EventEmitter }  from 'events';
 
-let serviceEndPoints = require('./../constants/serviceEndPoints');
-let services = require('../webServices/web-services');
-let ActionTypes = require('./../constants/actionTypes');
-let Dispatcher = require('./../dispatcher/dispatcher');
+import serviceEndPoints from './../constants/serviceEndPoints';
+import services from '../webServices/web-services';
+import ActionTypes from './../constants/actionTypes';
+import Dispatcher from './../dispatcher/dispatcher';
 
 let CHANGE_EVENT = 'change';
 let LoginStore = Object.assign({}, EventEmitter, {

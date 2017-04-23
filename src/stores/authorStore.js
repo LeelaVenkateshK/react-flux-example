@@ -2,14 +2,15 @@
  * Created by WS33 on 4/10/2017.
  */
 'use strict';
-let _ = require('lodash');
+import { EventEmitter } from 'events';
 
-let AppDispatcher = require('../dispatcher/dispatcher');
-let ActionTypes = require('../constants/actionTypes');
-let EventEmitter = require('events').EventEmitter;
-let AuthorApi = require('./../api/AuthorApi');
-let services = require('./../webServices/web-services');
-let serviceEndPoints = require('./../constants/serviceEndPoints');
+import _ from 'lodash';
+
+import AppDispatcher from '../dispatcher/dispatcher';
+import ActionTypes from '../constants/actionTypes';
+import AuthorApi from './../api/AuthorApi';
+import services from './../webServices/web-services';
+import serviceEndPoints from './../constants/serviceEndPoints';
 
 let CHANGE_EVENT = 'change';
 
@@ -45,9 +46,9 @@ AppDispatcher.register(function (action) {
       AuthorStore.emitChange();
       break;
     case ActionTypes.TEST:
-      services.get(serviceEndPoints.TEST,AuthorStore.connTest.bind(this));
+      services.getUsingAxios(serviceEndPoints.TEST, AuthorStore.connTest.bind(this));
       break;
   }
 });
 
-module.exports = AuthorStore;
+export default  AuthorStore;

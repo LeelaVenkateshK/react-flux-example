@@ -1,10 +1,7 @@
-/**
- * Created by WS33 on 3/31/2017.
- */
 'use strict';
-let React = require('react');
-let Link = require('react-router').Link;
-let PropTypes = require('prop-types');
+import React from 'react';
+import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 class PageNotFound extends React.Component {
   render () {
@@ -28,4 +25,4 @@ class PageNotFound extends React.Component {
 PageNotFound.propTypes = {
   location: PropTypes.string.isRequired
 };
-module.exports = PageNotFound;
+export default PageNotFound;

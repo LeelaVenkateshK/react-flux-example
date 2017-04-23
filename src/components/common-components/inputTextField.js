@@ -1,8 +1,5 @@
-/**
- * Created by WS33 on 4/4/2017.
- */
-let React = require('react');
-let PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputTextField extends React.Component {
   render () {
@@ -40,4 +37,4 @@ InputTextField.propTypes = {
   , value: PropTypes.string
 };
 
-module.exports = InputTextField;
+export default InputTextField;

@@ -1,9 +1,7 @@
-/**
- * Created by WS33 on 4/19/2017.
- */
 'use strict';
+import http from 'http';
 
-let http = require('http');
+import axios from 'axios';
 
 let services = {
   get(url, callback){
@@ -22,10 +20,17 @@ let services = {
     response.on('end', function () {
 
       // Data reception is done, do whatever with it!
-      console.log(body)
+      console.log(body);
       var parsed = JSON.stringify(body);
       console.log(parsed);
     });
+  }, getUsingAxios(url, callback){
+    axios.get(url)
+      .then(this.logData)
+      // .then(callback)
+      .catch(error =>
+        console.error('Encountered errors:: ' + error
+        ));
   }
 };
-module.exports = services;
+export default  services;

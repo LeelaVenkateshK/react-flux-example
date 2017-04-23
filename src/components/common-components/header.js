@@ -1,6 +1,6 @@
 'use strict';
-var React = require('react');
-var {Link} = require('react-router');
+import React from'react';
+import {Link} from'react-router';
 
 class Header extends React.Component {
   render () {
@@ -27,4 +27,4 @@ class Header extends React.Component {
   }
 }
 
-module.exports = Header;
+export default Header;

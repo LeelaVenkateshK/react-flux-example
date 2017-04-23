@@ -1,10 +1,10 @@
 'use strict';
 
-let React = require('react');
-let Link = require('react-router').Link;
+import React from 'react';
+import { Link }from 'react-router';
 
-let AuthorList = require('./authorList');
-let AuthorStore = require('../../stores/authorStore');
+import AuthorList from './authorList';
+import AuthorStore from '../../stores/authorStore';
 
 class AuthorPage extends React.Component {
   constructor () {
@@ -32,4 +32,4 @@ class AuthorPage extends React.Component {
   }
 }
 
-module.exports = AuthorPage;
+export default AuthorPage;

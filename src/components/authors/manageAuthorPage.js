@@ -1,14 +1,11 @@
-/**
- * Created by WS33 on 4/4/2017.
- */
-let React = require('react');
-let toastr = require('toastr');
-let {browserHistory} = require('react-router');
-let PropTypes = require('prop-types');
+import React from 'react';
+import toastr from 'toastr';
+import { browserHistory } from 'react-router';
+import PropTypes from 'prop-types';
 
-let AuthorActions = require('../../actions/authorActions');
-let AuthorStore = require('../../stores/authorStore');
-let AuthorForm = require('./authorForm');
+import AuthorActions from '../../actions/authorActions';
+import AuthorStore from '../../stores/authorStore';
+import AuthorForm from './authorForm';
 
 class ManageAuthor extends React.Component {
   constructor () {
@@ -76,4 +73,4 @@ ManageAuthor.propTypes = {
   params: PropTypes.any
 };
 
-module.exports = ManageAuthor;
+export default ManageAuthor;

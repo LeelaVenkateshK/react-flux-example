@@ -1,7 +1,7 @@
 'use strict';
-let React = require('react');
-let Header = require('./common-components/header');
-let PropTypes = require('prop-types');
+import React from'react';
+import Header from'./common-components/header';
+import PropTypes from'prop-types';
 
 class App extends React.Component {
   constructor () {
@@ -23,4 +23,4 @@ App.propTypes = {
   children: PropTypes.any.isRequired
 };
 
-module.exports = App;
+export default App;

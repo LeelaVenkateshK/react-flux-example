@@ -1,6 +1,3 @@
-/**
- * Created by WS33 on 4/10/2017.
- */
-let Dispatcher = require('flux').Dispatcher;
+import { Dispatcher } from 'flux';
 
-module.exports = new Dispatcher();
+export default new Dispatcher();

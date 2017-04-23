@@ -1,10 +1,7 @@
-/**
- * Created by WS33 on 4/8/2017.
- */
-let React = require('react');
+import React from 'react';
 class TermsAndConditionsPage extends React.Component {
-  render(){
-    return(
+  render () {
+    return (
       <div>
         No conditions
         Just Joking
@@ -12,4 +9,4 @@ class TermsAndConditionsPage extends React.Component {
     );
   }
 }
-module.exports = TermsAndConditionsPage;
+export default  TermsAndConditionsPage;

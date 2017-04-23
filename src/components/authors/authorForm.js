@@ -1,10 +1,7 @@
-/**
- * Created by WS33 on 4/4/2017.
- */
-let React = require('react');
-let PropTypes = require('prop-types');
+import React from 'react';
+import PropTypes from 'prop-types';
 
-let InputTextField = require('../common-components/inputTextField');
+import InputTextField from '../common-components/inputTextField';
 
 class AuthorForm extends React.Component {
   constructor () {
@@ -47,4 +44,4 @@ AuthorForm.propTypes = {
   onTextChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired
 };
-module.exports = AuthorForm;
+export default AuthorForm;

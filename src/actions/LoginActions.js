@@ -1,9 +1,6 @@
-/**
- * Created by WS33 on 4/19/2017.
- */
 'use strict';
-let Dispatcher = require('../dispatcher/dispatcher');
-let ActionTypes = require('../constants/actionTypes');
+import Dispatcher from '../dispatcher/dispatcher';
+import ActionTypes from '../constants/actionTypes';
 
 let LoginActions = {
   loginUser(user){
@@ -13,4 +10,4 @@ let LoginActions = {
     });
   }
 };
-module.exports = LoginActions;
+export default LoginActions;

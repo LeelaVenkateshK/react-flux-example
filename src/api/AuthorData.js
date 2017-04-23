@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     authors: [
         {
             id: 'cory-house',
