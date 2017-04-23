@@ -1,13 +1,13 @@
 'use strict';
 
-import gulp from 'gulp';
-import connect from 'gulp-connect';  // local server
-import open from 'gulp-open';        // to open url
-import browserify from 'browserify'; // Bundles the javascript files
-import source from 'vinyl-source-stream';    // Use conventional streams with gulp
-import concat from 'gulp-concat';    // Concatenates files
-import lint from 'gulp-eslint';      // Lint for Js and JSX files
-import babelify from 'babelify';
+let gulp = require('gulp');
+let connect = require('gulp-connect');  // local server
+let open = require('gulp-open');        // to open url
+let browserify = require('browserify'); // Bundles the javascript files
+let source = require('vinyl-source-stream');    // Use conventional streams with gulp
+let concat = require('gulp-concat');    // Concatenates files
+let lint = require('gulp-eslint');      // Lint for Js and JSX files
+let babelify = require('babelify');
 
 let config = {
   baseUrl: 'http://localhost',
