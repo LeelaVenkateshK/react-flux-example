@@ -2,7 +2,7 @@
 import React from 'react';
 import toastr from 'toastr';
 import { browserHistory } from 'react-router';
-import InputTextField from '../common-components/inputTextField';
+import InputTextField from '../common-components/input-field';
 
 class LoginPage extends React.Component {
   constructor () {

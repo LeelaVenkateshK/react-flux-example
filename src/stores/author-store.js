@@ -1,19 +1,14 @@
-/**
- * Created by WS33 on 4/10/2017.
- */
 'use strict';
 import { EventEmitter } from 'events';
-
 import _ from 'lodash';
 
 import AppDispatcher from '../dispatcher/dispatcher';
-import ActionTypes from '../constants/actionTypes';
-import AuthorApi from './../api/AuthorApi';
-import services from './../webServices/web-services';
-import serviceEndPoints from './../constants/serviceEndPoints';
+import ActionTypes from '../constants/action-types';
+import AuthorApi from './../api/author-api';
+import services from './../web-services/web-services';
+import serviceEndPoints from './../constants/service-end-points';
 
 let CHANGE_EVENT = 'change';
-
 var _authors = [];
 let AuthorStore = Object.assign({}, EventEmitter.prototype, {
   addChangeListener(callback) {
@@ -36,6 +31,9 @@ let AuthorStore = Object.assign({}, EventEmitter.prototype, {
   },
   connTest(){
     console.log('connection test');
+  },
+  callback(response){
+
   }
 });
 
@@ -46,7 +44,8 @@ AppDispatcher.register(function (action) {
       AuthorStore.emitChange();
       break;
     case ActionTypes.TEST:
-      services.getUsingAxios(serviceEndPoints.TEST, AuthorStore.connTest.bind(this));
+
+      AuthorStore.emitChange();
       break;
   }
 });

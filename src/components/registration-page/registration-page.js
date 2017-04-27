@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Link } from 'react-router';
-import InputTextField from '../common-components/inputTextField';
+import InputTextField from '../common-components/input-field';
 
 class UserRegistrationPage extends React.Component {
   constructor () {

@@ -1,6 +1,10 @@
 'use strict';
 import Dispatcher from '../dispatcher/dispatcher';
-import ActionTypes from '../constants/actionTypes';
+
+import constants from './../constants/service-end-points';
+import ActionTypes from '../constants/action-types';
+import services from './../web-services/web-services';
+
 let AuthorActions = {
   createAuthor(author) {
     //Dispatches an event to all stores that a new createAuthor is triggered
@@ -15,10 +19,16 @@ let AuthorActions = {
     });
   },
   testConnection(){
+    let call = services.getUsingAxios(constants.TEST, this.callbackFunction);
     Dispatcher.dispatch({
-      actionType: ActionTypes.TEST
+      actionType: ActionTypes.TEST,
+      data: call
     });
 
+  }, callbackFunction(data){
+    let response = JSON.stringify(data.data);
+    console.log(response);
+    return response;
   }
 };
 

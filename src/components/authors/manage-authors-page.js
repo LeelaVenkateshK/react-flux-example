@@ -3,7 +3,7 @@ import toastr from 'toastr';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
-import AuthorActions from '../../actions/authorActions';
+import AuthorActions from '../../actions/author-actions';
 import AuthorStore from '../../stores/authorStore';
 import AuthorForm from './authorForm';
 

@@ -1,7 +1,8 @@
+'use strict';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InputTextField from '../common-components/inputTextField';
+import InputTextField from '../common-components/input-field';
 
 class AuthorForm extends React.Component {
   constructor () {

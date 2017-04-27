@@ -1,7 +1,7 @@
 'use strict';
 
 //This file is mocking a web API by hitting hard coded data.
-import { authors } from './AuthorData';
+import { authors } from './author-data';
 import  _ from 'lodash';
 
 //This would be performed on the server in a real app. Just stubbing in.

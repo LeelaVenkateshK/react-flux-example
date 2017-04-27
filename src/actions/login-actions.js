@@ -1,6 +1,6 @@
 'use strict';
 import Dispatcher from '../dispatcher/dispatcher';
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from '../constants/action-types';
 
 let LoginActions = {
   loginUser(user){
