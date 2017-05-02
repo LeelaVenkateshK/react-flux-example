@@ -1,28 +1,31 @@
 'use strict';
 import React from 'react';
-import AuthorActions from './../../actions/author-actions';
 
+import AuthorActions from './../../actions/author-actions';
+import AuthorStore from './../../stores/author-store';
+import Clock from './clock';
 class Home extends React.Component {
   constructor () {
     super();
-    this.state = {json: ''};
+    this.state = {json: '',date:new Date()};
+    this.timerId;
   }
 
   componentDidMount () {
-    console.log('in componentDidMount');
   }
 
   componentWillUnmount () {
-
+    AuthorStore.removeChangeListener(this.getProductData);
   }
 
   componentWillMount () {
-    this.setState({json: JSON.stringify(AuthorActions.testConnection())});
-    console.log(this.state.json);
+    AuthorStore.addChangeListener(this.getProductData);
   }
 
+  getProductData(){
+    this.setState({json: JSON.stringify(AuthorActions.testConnection())});
+  }
   render () {
-    console.log(this.state.json);
     return (
       <div>
         <div className="jumbotron">
@@ -33,6 +36,7 @@ class Home extends React.Component {
         <p>This will override the Actual "Hello Kris" that was supposed to be
           displayed</p>
         <p>{this.state.json}</p>
+        <Clock />
       </div>
     );
   }

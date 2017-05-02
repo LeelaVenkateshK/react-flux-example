@@ -1,0 +1,10 @@
+url: '/user',
+method: 'get',
+params: {
+  ID: 12345
+},
+data: {
+  firstName: 'Fred'
+},
+responseType: 'json'
+}

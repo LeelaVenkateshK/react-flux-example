@@ -19,7 +19,7 @@ let AuthorActions = {
     });
   },
   testConnection(){
-    let call = services.getUsingAxios(constants.TEST, this.callbackFunction);
+    let call = services.getUsingAxios(constants.TEST, this.callbackFunction.bind(this));
     Dispatcher.dispatch({
       actionType: ActionTypes.TEST,
       data: call
@@ -27,6 +27,7 @@ let AuthorActions = {
 
   }, callbackFunction(data){
     let response = JSON.stringify(data.data);
+    console.log(data);
     console.log(response);
     return response;
   }

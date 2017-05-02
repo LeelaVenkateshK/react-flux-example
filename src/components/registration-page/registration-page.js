@@ -1,8 +1,6 @@
-/**
- * Created by WS33 on 4/8/2017.
- */
 import React from 'react';
 import { Link } from 'react-router';
+
 import InputTextField from '../common-components/input-field';
 
 class UserRegistrationPage extends React.Component {

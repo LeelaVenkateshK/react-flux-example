@@ -5,8 +5,6 @@ import _ from 'lodash';
 import AppDispatcher from '../dispatcher/dispatcher';
 import ActionTypes from '../constants/action-types';
 import AuthorApi from './../api/author-api';
-import services from './../web-services/web-services';
-import serviceEndPoints from './../constants/service-end-points';
 
 let CHANGE_EVENT = 'change';
 var _authors = [];
@@ -30,10 +28,7 @@ let AuthorStore = Object.assign({}, EventEmitter.prototype, {
     return _.find(_authors, {id: id});
   },
   connTest(){
-    console.log('connection test');
-  },
-  callback(response){
-
+    // console.log('connection test');
   }
 });
 
