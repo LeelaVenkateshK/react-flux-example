@@ -41,6 +41,7 @@
     "install": "^0.8.8",
     "npm": "^4.5.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-logger": "^1.1.0",
     "reactify": "^1.1.1"
   }
 }

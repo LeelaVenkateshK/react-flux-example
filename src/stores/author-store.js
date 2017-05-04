@@ -26,9 +26,6 @@ let AuthorStore = Object.assign({}, EventEmitter.prototype, {
   },
   getAuthorById(id){
     return _.find(_authors, {id: id});
-  },
-  connTest(){
-    // console.log('connection test');
   }
 });
 
@@ -39,7 +36,6 @@ AppDispatcher.register(function (action) {
       AuthorStore.emitChange();
       break;
     case ActionTypes.TEST:
-
       AuthorStore.emitChange();
       break;
   }

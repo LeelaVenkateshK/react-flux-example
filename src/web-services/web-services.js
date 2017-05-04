@@ -12,16 +12,13 @@ let services = {
   request(config) {
     return axios.request(config);
   },
-  getUsingAxios(url, callback) {
-    let resp = this.request({url: url ? url : '/'});
-    resp.then(callback);
-    console.log(typeof(resp));
-    return resp;
+  getUsingAxios(url) {
+    return this.request({ url });
   },
-  deleteDocument(documentId){
+  deleteDocument(documentId) {
     axios.delete(documentId);
   },
-  createDocument(path, documentObj){
+  createDocument(path, documentObj) {
     axios.post(path, documentObj);
     let createDocConfigObj = {};
     axios.request(createDocConfigObj);

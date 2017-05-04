@@ -5,4 +5,5 @@ export default {
   USER_LOGIN: url + '/user/login-page',
   USER_REGISTER: url + '/user/registration-page',
   TEST: url,
+  PRODUCTS:url+'/resources/products'
 };

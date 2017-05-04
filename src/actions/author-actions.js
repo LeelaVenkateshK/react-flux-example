@@ -1,5 +1,6 @@
 'use strict';
 import Dispatcher from '../dispatcher/dispatcher';
+import logger from 'react-logger';
 
 import constants from './../constants/service-end-points';
 import ActionTypes from '../constants/action-types';
@@ -27,8 +28,8 @@ let AuthorActions = {
 
   }, callbackFunction(data){
     let response = JSON.stringify(data.data);
-    console.log(data);
-    console.log(response);
+    logger.debug(data);
+    logger.debug(response);
     return response;
   }
 };

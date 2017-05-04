@@ -1,40 +1,36 @@
 'use strict';
 import React from 'react';
-
-import AuthorActions from './../../actions/author-actions';
-import AuthorStore from './../../stores/author-store';
 import Clock from './clock';
+import ProductActions from './../../actions/product-actions';
+import ProductStore from '../../stores/product-store';
 class Home extends React.Component {
-  constructor () {
+  constructor() {
     super();
-    this.state = {json: '',date:new Date()};
+    this.state = { json: ProductActions.getAllProducts(), date: new Date() };
     this.timerId;
   }
 
-  componentDidMount () {
+  componentWillUnmount() {
+    ProductStore.removeChangeListener(this._getProductData);
   }
 
-  componentWillUnmount () {
-    AuthorStore.removeChangeListener(this.getProductData);
+  componentWillMount() {
+    ProductStore.addChangeListener(this._getProductData);
+    this.setState({ json: ProductActions.getAllProducts });
+    console.log('json :: ' + this.state.json);
   }
 
-  componentWillMount () {
-    AuthorStore.addChangeListener(this.getProductData);
+  _getProductData() {
+    this.setState({ json: JSON.stringify(ProductActions.getAllProducts()) });
   }
 
-  getProductData(){
-    this.setState({json: JSON.stringify(AuthorActions.testConnection())});
-  }
-  render () {
+  render() {
+    console.log('json' + this.state.json);
     return (
       <div>
         <div className="jumbotron">
-          <h1>
-            Administration
-          </h1>
+          <h1>Welcome!</h1>
         </div>
-        <p>This will override the Actual "Hello Kris" that was supposed to be
-          displayed</p>
         <p>{this.state.json}</p>
         <Clock />
       </div>
