@@ -1,12 +1,9 @@
-/**
- * Created by WS33 on 4/19/2017.
- */
 'use strict';
 import { EventEmitter }  from 'events';
 
-import serviceEndPoints from './../constants/serviceEndPoints';
-import services from '../webServices/web-services';
-import ActionTypes from './../constants/actionTypes';
+import serviceEndPoints from './../constants/service-end-points';
+import services from '../web-services/web-services';
+import ActionTypes from './../constants/action-types';
 import Dispatcher from './../dispatcher/dispatcher';
 
 let CHANGE_EVENT = 'change';
