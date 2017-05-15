@@ -1,11 +1,11 @@
-import keyMirror from 'keymirror';
+import keyMirror from "keymirror";
 
 export default keyMirror({
-  USER_LOGIN: null,
-  REGISTER_USER: null,
-  TEST: null,
-  ORDER_UPDATE: null,
-  PRODUCT_ADD: null,
-  PRODUCT_REMOVE: null,
-  GET_PRODUCTS: null
+    USER_LOGIN: null,
+    REGISTER_USER: null,
+    TEST: null,
+    ORDER_UPDATE: null,
+    PRODUCT_ADD: null,
+    PRODUCT_REMOVE: null,
+    GET_PRODUCTS: null
 });

@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
 class OrderPage extends React.Component {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  render() {
-    return <p>{this.state.someKey}</p>;
-  }
+    render() {
+        return <p>{this.state.someKey}</p>;
+    }
 
-  componentDidMount() {
+    componentDidMount() {
 
-  }
+    }
 }
 
 export default OrderPage;
