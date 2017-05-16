@@ -34,21 +34,19 @@ class Home extends React.Component {
     }
 
     render() {
-        let body = null;
+        let variant = null;
         if (this.state.tableData[0]) {
             let headers = Object.keys(this.state.tableData[0]);
-            body =
-                <div>
-                    <div className="jumbotron">
-                        <h1>Welcome!</h1>
-                    </div>
-                    <TableComponent headers={headers} tableData={[[1, 2, 3], [4, 5, 6], [7, 8, 9]]}/>
-                </div>;
+            variant = <TableComponent headers={headers} tableData={this.state.tableData}/>;
         }
-        if(body){
-            return {body};
-        }
-        else return null;
+        return (
+            <div>
+                <div className="jumbotron">
+                    <h1>Welcome!</h1>
+                </div>
+                {variant}
+            </div>
+        );
     }
 }
 

@@ -5,9 +5,9 @@ class TableData extends React.Component {
         let dataRows = [];
         for (const dataRow of this.props.data) {
             let currRow = [];
-            currRow.push(<input type="checkbox" /> );
-            for (let data of dataRow) {
-                currRow.push(<td>{JSON.stringify(data)}</td>);
+            currRow.push(<input type="checkbox"/>);
+            for (let data in dataRow) {
+                currRow.push(<td>{JSON.stringify(dataRow[data])}</td>);
             }
             dataRows.push(<tr>{currRow}</tr>);
         }
@@ -16,7 +16,6 @@ class TableData extends React.Component {
 
     render() {
         let data = this.createTableRows();
-        // console.log('TableData ::' + data);
         return (
             <tBody>
             {data}

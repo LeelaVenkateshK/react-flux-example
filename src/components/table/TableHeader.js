@@ -5,14 +5,14 @@ import PropTypes from "prop-types";
 class TableHeader extends React.Component {
     createTableHeaders = () => {
         let headers = [];
-        if (this.props.data.length > 0) {
+        if (this.props.headers.length > 0) {
             headers.push(
                 <th>{this.props.isAllSelected?
                     <input type="checkbox" onClick={this.props.selectAll} checked></input>:
                     <input type="checkbox" onClick={this.props.selectAll}></input>}
                 </th>);
-            for (let headerData in this.props.data) {
-                headers.push(<th>{this.props.data[headerData]}</th>);
+            for (let headerData in this.props.headers) {
+                headers.push(<th>{this.props.headers[headerData]}</th>);
             }
         }
         else {
@@ -23,7 +23,6 @@ class TableHeader extends React.Component {
 
     render() {
         let header = this.createTableHeaders();
-        console.log(header[0]);
         return (
             <tr>
                 {header}
@@ -32,7 +31,7 @@ class TableHeader extends React.Component {
     }
 }
 TableHeader.propTypes = {
-    data: PropTypes.array.isRequired,
+    headers: PropTypes.array.isRequired,
     selectAll: PropTypes.func.isRequired,
     isAllSelected: PropTypes.bool.isRequired
 };

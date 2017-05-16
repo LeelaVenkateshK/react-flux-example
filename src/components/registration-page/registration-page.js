@@ -30,7 +30,6 @@ class UserRegistrationPage extends React.Component {
     render() {
         let confirmPasswordField;
         if (this.state.author && this.state.author.firstName) {
-            console.log('this.state.author.firstName :: ' + (this.state.author) ? this.state.author.firstName : 'no name');
         }
         if (this.state.isPasswordValid) {
             confirmPasswordField =
@@ -99,7 +98,6 @@ class UserRegistrationPage extends React.Component {
 
     submitRegistration = (event) => {
         event.preventDefault();
-        console.log(this.state.author.firstName);
         if (!this.state.termsAndConditionsAgreed) {
             this.setState({termsAndConditionsMessage: 'Please agree to the terms and conditions'});
             return;
