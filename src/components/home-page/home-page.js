@@ -14,6 +14,7 @@ class Home extends React.Component {
 
     componentWillUnmount() {
         ProductStore.removeChangeListener(this._getProductData);
+        GithubUsersStore.removeChangeListener(this._getUserData)
     }
 
     componentWillMount() {
@@ -38,6 +39,9 @@ class Home extends React.Component {
         if (this.state.tableData[0]) {
             let headers = Object.keys(this.state.tableData[0]);
             variant = <TableComponent headers={headers} tableData={this.state.tableData}/>;
+        }
+        else {
+            variant = <p>Data Loading.<br/>Please wait....</p>;
         }
         return (
             <div>
