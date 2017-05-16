@@ -14,6 +14,7 @@ class Home extends React.Component {
 
     componentWillUnmount() {
         ProductStore.removeChangeListener(this._getProductData);
+        GithubUsersStore.removeChangeListener(this._getUserData)
     }
 
     componentWillMount() {
@@ -45,10 +46,9 @@ class Home extends React.Component {
                     <TableComponent headers={headers} tableData={[[1, 2, 3], [4, 5, 6], [7, 8, 9]]}/>
                 </div>;
         }
-        if(body){
-            return {body};
-        }
-        else return null;
+        return <div>
+            {body}
+        </div>
     }
 }
 
