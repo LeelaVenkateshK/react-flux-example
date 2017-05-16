@@ -24,9 +24,10 @@ class TableComponent extends React.Component {
     }
 
     render() {
+        let headers = this.props.tableData[0].keys;
         return (
             <table className="table table-bordered table-hover table-responsive">
-                <TableHeader data={this.props.headers} selectAll={this.selectAll}
+                <TableHeader data={headers} selectAll={this.selectAll}
                              isAllSelected={this.state.isAllSelected}/>
                 <TableData data={this.props.tableData}/>
             </table>

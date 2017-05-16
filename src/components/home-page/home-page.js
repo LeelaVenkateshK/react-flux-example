@@ -3,11 +3,13 @@ import React from "react";
 import ProductActions from "./../../actions/product-actions";
 import ProductStore from "../../stores/product-store";
 import TableComponent from "./../table/TableComponent";
+import GithubUsersAction from "./../../actions/github-users-action";
+import GithubUsersStore from "./../../stores/github-users-store";
+
 class Home extends React.Component {
     constructor() {
         super();
-        // this.state = {json: ProductActions.getAllProducts(), date: new Date()};
-        this.timerId;
+        this.state = {tableData: []};
     }
 
     componentWillUnmount() {
@@ -16,8 +18,15 @@ class Home extends React.Component {
 
     componentWillMount() {
         ProductStore.addChangeListener(this._getProductData);
-        this.setState({json: ProductActions.getAllProducts});
-        // console.log('json :: ' + this.state.json);
+        GithubUsersStore.addChangeListener(this._getUserData);
+    }
+
+    componentDidMount() {
+        GithubUsersAction.getAllUsers();
+    }
+
+    _getUserData = () => {
+        this.setState({tableData: GithubUsersStore._getUsers()});
     }
 
     _getProductData() {
@@ -25,17 +34,21 @@ class Home extends React.Component {
     }
 
     render() {
-        console.log('json' + this.state.json);
-        return (
-            <div>
-                <div className="jumbotron">
-                    <h1>Welcome!</h1>
-                </div>
-                <TableComponent headers={[1, 2, 3]} tableData={[[1, 2, 3], [4, 5, 6], [7, 8, 9]]}/>
-                {/*<p>{this.state.json}</p>*/}
-            </div>
-        )
-            ;
+        let body = null;
+        if (this.state.tableData[0]) {
+            let headers = Object.keys(this.state.tableData[0]);
+            body =
+                <div>
+                    <div className="jumbotron">
+                        <h1>Welcome!</h1>
+                    </div>
+                    <TableComponent headers={headers} tableData={[[1, 2, 3], [4, 5, 6], [7, 8, 9]]}/>
+                </div>;
+        }
+        if(body){
+            return {body};
+        }
+        else return null;
     }
 }
 

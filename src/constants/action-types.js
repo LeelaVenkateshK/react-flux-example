@@ -7,5 +7,6 @@ export default keyMirror({
     ORDER_UPDATE: null,
     PRODUCT_ADD: null,
     PRODUCT_REMOVE: null,
-    GET_PRODUCTS: null
+    GET_PRODUCTS: null,
+    GET_GITHUB_USERS:null
 });
