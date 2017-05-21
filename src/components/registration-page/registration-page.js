@@ -29,8 +29,6 @@ class UserRegistrationPage extends React.Component {
 
     render() {
         let confirmPasswordField;
-        if (this.state.author && this.state.author.firstName) {
-        }
         if (this.state.isPasswordValid) {
             confirmPasswordField =
                 <InputTextField fieldType="password" fieldName="confirmPass"

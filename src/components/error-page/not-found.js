@@ -9,7 +9,7 @@ class PageNotFound extends React.Component {
             <div>
                 <h2>Oops! Page Not Found</h2>
                 <h4>The URL you have requested for
-                    <b>"{this.props.location.pathname}"</b> is not found</h4>
+                    <b>&#34;{this.props.location.pathname}&#34;</b> is not found</h4>
 
                 <h5>The possible reasons would be as follows:</h5>
                 <ul>

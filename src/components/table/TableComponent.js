@@ -6,7 +6,6 @@ import Constants from "./../../constants/constants";
 class TableComponent extends React.Component {
     constructor() {
         super();
-
         this.state = {
             isAllSelected: false,
             selectedRows: {}
@@ -19,13 +18,19 @@ class TableComponent extends React.Component {
         let dataRows = [];
         for (const dataRow of this.props.tableData) {
             let currRow = [];
-            currRow.push(this.state.isAllSelected ?
-                <input type="checkbox" onClick={this._selectRow} checked/> :
-                <input type="checkbox" onClick={this._selectRow}/>);
+            let check = this.state.isAllSelected ?
+                <input type="checkbox" name={`${dataRow['login']}-check`} onChange={this._selectRow} checked/> :
+                <input type="checkbox" name={`${dataRow['login']}-check`} onClick={this._selectRow}/>;
+            currRow.push(
+                <td key={`${dataRow['login']}-check`}>{check}</td>);
             for (let header of Constants.TABLE_HEADERS_GIT) {
                 header === 'avatar_url' ? currRow.push(
-                    <td><img src={dataRow[header]} height={`20px`} width={`20px`}/></td>) :
-                    currRow.push(<td key={dataRow[header]}>{JSON.stringify(dataRow[header])}</td>);
+                    <td key={`${dataRow['login']}-avatar`}>
+                        <img src={dataRow[header]} height={`20px`} width={`20px`}/>
+                    </td>) :
+                    currRow.push(<td key={`${dataRow['login']}-${dataRow[header]}`}>
+                        {JSON.stringify(dataRow[header])}
+                    </td>);
             }
             dataRows.push(<tr key={dataRow.login}>{currRow}</tr>);
         }
@@ -33,12 +38,6 @@ class TableComponent extends React.Component {
     }
 
     _selectAll = (event) => {
-        if (!this.state.isAllSelected) {
-            console.log('select all');
-
-        } else {
-            console.log('unselect all');
-        }
         this.setState({isAllSelected: !this.state.isAllSelected});
     }
 

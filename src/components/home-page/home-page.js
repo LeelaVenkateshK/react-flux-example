@@ -50,22 +50,18 @@ class Home extends React.Component {
         GithubUsersAction.getAllUsers();
     }
 
-    _parseError() {
-
-    }
-
     render() {
         let variant = null, button, error = "";
         if (this.state.error === Constants.DATA_FETCH_IN_PROGRESS) {
             variant = <p>Data Loading.<br/>Please wait....</p>;
-            button = <button onClick={this._refreshData}>Refresh Data</button>
+            button = <button onClick={this._refreshData}>Refresh Again</button>
         }
         else if (this.state.error === Constants.ERROR_IN_CONNECTION) {
             error = Constants.ERROR_IN_CONNECTION;
             button = <button onClick={this._refreshData}>Retry</button>;
         }
         else if (this.state.error === "") {
-            button = <button onClick={this._refreshData}>Reload</button>;
+            button = <button onClick={this._refreshData}>Refresh</button>;
             variant = <TableComponent headers={Constants.TABLE_HEADERS_GIT} tableData={this.state.tableData}/>;
         }
         return (
