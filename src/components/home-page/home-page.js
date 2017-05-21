@@ -5,11 +5,13 @@ import ProductStore from "../../stores/product-store";
 import TableComponent from "./../table/TableComponent";
 import GithubUsersAction from "./../../actions/github-users-action";
 import GithubUsersStore from "./../../stores/github-users-store";
+import Constants from "./../../constants/constants";
 
 class Home extends React.Component {
     constructor() {
         super();
-        this.state = {tableData: []};
+        this.state = {tableData: [], error: ""};
+        this._refreshData = this._refreshData.bind(this);
     }
 
     componentWillUnmount() {
@@ -27,26 +29,52 @@ class Home extends React.Component {
     }
 
     _getUserData = () => {
-        this.setState({tableData: GithubUsersStore._getUsers()});
+        let userData = GithubUsersStore._getUsers();
+        this.setState({
+            tableData: userData.users,
+            error: userData.error
+        });
     }
 
     _getProductData() {
         this.setState({json: JSON.stringify(ProductActions.getAllProducts())});
     }
 
+    _refreshData(event) {
+        event.preventDefault();
+        GithubUsersStore._deleteData();
+        this.setState({
+            tableData: [],
+            error: Constants.RELOADING
+        });
+        GithubUsersAction.getAllUsers();
+    }
+
+    _parseError() {
+
+    }
+
     render() {
-        let variant = null;
-        if (this.state.tableData[0]) {
-            let headers = Object.keys(this.state.tableData[0]);
-            variant = <TableComponent headers={headers} tableData={this.state.tableData}/>;
-        }
-        else {
+        let variant = null, button, error = "";
+        if (this.state.error === Constants.DATA_FETCH_IN_PROGRESS) {
             variant = <p>Data Loading.<br/>Please wait....</p>;
+            button = <button onClick={this._refreshData}>Refresh Data</button>
+        }
+        else if (this.state.error === Constants.ERROR_IN_CONNECTION) {
+            error = Constants.ERROR_IN_CONNECTION;
+            button = <button onClick={this._refreshData}>Retry</button>;
+        }
+        else if (this.state.error === "") {
+            button = <button onClick={this._refreshData}>Reload</button>;
+            variant = <TableComponent headers={Constants.TABLE_HEADERS_GIT} tableData={this.state.tableData}/>;
         }
         return (
             <div>
-                <div className="jumbotron">
+                <div>
                     <h1>Welcome!</h1>
+                    {button} <br />
+                    {error}
+                    <br />
                 </div>
                 {variant}
             </div>
