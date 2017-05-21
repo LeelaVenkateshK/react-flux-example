@@ -8,7 +8,6 @@ import ServerEndpoints from "./../constants/service-end-points";
 
 let ProductActions = {
     createProduct(product) {
-        // TODO create a product via a API call
         WebServices.createDocument(product);
         Dispatcher.dispatch({
             actionType: ActionTypes.CREATE_PRODUCT,
@@ -16,7 +15,6 @@ let ProductActions = {
         });
     },
     deleteProduct(productId) {
-        // TODO Delete the product via API call
         WebServices.deleteDocument(productId);
         Dispatcher.dispatch({
             actionType: ActionTypes.DELETE_PRODUCT

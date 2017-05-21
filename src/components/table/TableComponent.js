@@ -43,7 +43,6 @@ class TableComponent extends React.Component {
 
     _selectRow = (event) => {
         event.target.value;
-        console.log('clicked ' + event.target.name);
     }
 
     _createTableHeaders = () => {

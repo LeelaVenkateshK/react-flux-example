@@ -8,5 +8,5 @@ export default keyMirror({
     PRODUCT_ADD: null,
     PRODUCT_REMOVE: null,
     GET_PRODUCTS: null,
-    GET_GITHUB_USERS:null
+    GET_GITHUB_USERS: null
 });

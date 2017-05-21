@@ -29,7 +29,6 @@ class LoginPage extends React.Component {
             this.setState({error: errorMessage, password: value});
             return false;
         }
-        // TODO add db check for userName Value
         errorMessage.userName = '';
         this.setState({error: errorMessage, userName: value});
         return true;
@@ -59,10 +58,6 @@ class LoginPage extends React.Component {
         if (!this.validateUserName()) return;
         if (!this.validatePassword()) return;
         toastr['success']('Welcome ' + this.state.userName);
-
-        // Commented just as we are using browserHistory currently for allowing page reload
-        // TODO Change to browserHistory
-        // browserHistory.push('/authors');
         browserHistory.push('/authors');
     }
 

@@ -67,9 +67,6 @@ class ManageAuthor extends React.Component {
     }
 }
 ManageAuthor.propTypes = {
-    /**
-     * TODO check why this propTypes is failing
-     */
     params: PropTypes.any
 };
 
