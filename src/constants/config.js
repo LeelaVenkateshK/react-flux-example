@@ -1,6 +1,6 @@
 export default {
-  server: {
-    'url': 'http://localhost',
-    'port': 9003
-  }
+    server: {
+        'url': 'http://localhost',
+        'port': 9003
+    }
 };
