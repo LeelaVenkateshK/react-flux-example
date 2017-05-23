@@ -1,6 +1,5 @@
 import React from "react";
-import {browserHistory, Route, Router} from "react-router";
-
+import {BrowserRouter, Route} from "react-router";
 import App from "../app";
 import PageNotFound from "../error-page/not-found";
 import HomePage from "../home-page/home-page";
@@ -10,9 +9,8 @@ import UserRegistrationPage from "../registration-page/registration-page";
 import TermsAndConditionsPage from "../registration-page/terms-and-conditions";
 import AdminPage from "../admin-page/admin-page";
 import TableComponent from "../table/TableComponent";
-let Routes = (
-    <Router history={browserHistory}>
-
+export default (
+    <BrowserRouter>
         <Route name="default" component={App}>
             <Route path="/" component={HomePage}/>
             <Route path="about" component={AboutPage}/>
@@ -23,7 +21,5 @@ let Routes = (
             <Route path="products" component={TableComponent}/>
             <Route path="/*" component={PageNotFound}/>
         </Route>
-
-    </Router>
+    </BrowserRouter>
 );
-export default Routes;

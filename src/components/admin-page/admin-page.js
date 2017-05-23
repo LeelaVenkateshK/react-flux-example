@@ -7,14 +7,12 @@ class AdminPage extends React.Component {
         return (
             <div>
                 <Link to="manageProducts"> Manage Products
-                    <
-                    /Link>
-                    <Link to="manageOrder"> Manage Orders
-                        <
-                        /Link>
+                </Link>
+                <Link to="manageOrder"> Manage Orders
+                </Link>
             </div>
-    );
+        );
     }
-    }
+}
 
-    export default AdminPage;
+export default AdminPage;
